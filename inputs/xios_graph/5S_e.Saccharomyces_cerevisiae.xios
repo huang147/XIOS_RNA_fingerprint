@@ -1,0 +1,26 @@
+<XIOS version='2.0'>
+  <information>
+  </information>
+  <stem_list>
+    0  59.0 [  1  9   109 117 ]  (((((((((   )))))))))
+    1  39.0 [ 14 21    57  64 ]   ((((((((   )))))))) 
+    2  38.5 [ 26 32    45  53 ]    (((((((   ))))..)))
+    3  86.5 [ 66 70   103 107 ]      (((((   )))))    
+    4  87.5 [ 78 85    90  97 ]   ((((((((   )))))))) 
+  </stem_list>
+  <edge_list>
+    0: 1i 2i 3i 4i
+    1: 2i
+    2:
+    3: 4i
+    4:
+  </edge_list>
+  <adjacency>
+      0 1 2 3 4 
+    0 - i i i i 
+    1 j - i s s 
+    2 j j - s s 
+    3 j s s - i 
+    4 j s s j - 
+  </adjacency>
+</XIOS>

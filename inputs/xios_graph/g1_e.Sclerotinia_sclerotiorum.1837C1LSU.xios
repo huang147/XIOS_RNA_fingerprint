@@ -1,0 +1,53 @@
+<XIOS version='2.0'>
+  <information>
+  </information>
+  <stem_list>
+     0  22.5 [   6  12    33  39 ]      (((((((   )))))))    
+     1  50.0 [  43  47    53  58 ]        (((((   ))).))     
+     2  67.5 [  60  65    70  75 ]       ((((((   ))))))     
+     3 167.5 [  78  84   251 257 ]      (((((((   )))))))    
+     4 147.0 [  89  96   198 203 ]     ((..((((   ))))))     
+     5 147.5 [ 101 103   192 194 ]          (((   )))        
+     6 150.0 [ 112 117   183 188 ]       ((((((   ))))))     
+     7 147.5 [ 121 122   173 174 ]           ((   ))         
+     8 135.5 [ 123 133   138 148 ]  (((((((.(((   )))))))).))
+     9 159.0 [ 150 156   162 168 ]      (((((((   )))))))    
+    10 220.5 [ 204 212   229 237 ]    (((..((((   ))))..)))  
+    11 221.0 [ 216 218   224 226 ]          (((   )))        
+    12 264.0 [ 241 247   281 286 ]      (.(((((   ))))))     
+    13 265.5 [ 258 263   268 273 ]       ((((((   ))))))     
+  </stem_list>
+  <edge_list>
+     0:
+     1:
+     2:
+     3:  4i  5i  6i  7i  8i  9i 10i 11i 12o
+     4:  5i  6i  7i  8i  9i
+     5:  6i  7i  8i  9i
+     6:  7i  8i  9i
+     7:  8i  9i
+     8:
+     9:
+    10: 11i
+    11:
+    12: 13i
+    13:
+  </edge_list>
+  <adjacency>
+        0  1  2  3  4  5  6  7  8  9 10 11 12 13 
+     0  -  s  s  s  s  s  s  s  s  s  s  s  s  s 
+     1  s  -  s  s  s  s  s  s  s  s  s  s  s  s 
+     2  s  s  -  s  s  s  s  s  s  s  s  s  s  s 
+     3  s  s  s  -  i  i  i  i  i  i  i  i  o  s 
+     4  s  s  s  j  -  i  i  i  i  i  s  s  s  s 
+     5  s  s  s  j  j  -  i  i  i  i  s  s  s  s 
+     6  s  s  s  j  j  j  -  i  i  i  s  s  s  s 
+     7  s  s  s  j  j  j  j  -  i  i  s  s  s  s 
+     8  s  s  s  j  j  j  j  j  -  s  s  s  s  s 
+     9  s  s  s  j  j  j  j  j  s  -  s  s  s  s 
+    10  s  s  s  j  s  s  s  s  s  s  -  i  s  s 
+    11  s  s  s  j  s  s  s  s  s  s  j  -  s  s 
+    12  s  s  s  o  s  s  s  s  s  s  s  s  -  i 
+    13  s  s  s  s  s  s  s  s  s  s  s  s  j  - 
+  </adjacency>
+</XIOS>

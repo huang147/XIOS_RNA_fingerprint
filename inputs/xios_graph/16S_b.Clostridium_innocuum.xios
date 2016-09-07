@@ -1,0 +1,231 @@
+<XIOS version='2.0'>
+  <information>
+    <sequence>
+      <id>>d.16.b.C.innocuum.bpseq Organism: Clostridium innocuum Accession Number: M23732</id>
+      <unformatted>CAAUGGAGAGUUUGAUCCUGGCUCAGGAUGAACGCUGGCGGCAUGCCUAAUACAUGCAAGUCGAACGAAGUCUUCAGGAAGCUUGCUUCCAAAAAGACUUAGUGGCGAACGGGUGAGUAACACGUAGGUAACCUGCCCAUGUGUCCGGGAUAACUGCUGGAAACGGUAGCUAAAACCGGAUAGGUAUACGGAGCGCAUGCUCUGUAUAUUAAAGCGCCCUUCAAGGCGUGAACAUGGAUGGACCUGCGACGCAUUAGCUAGUUGGUGAGGUAACGGCCCACCAAGGCGAUGAUGCGUAGCCGGCCUGAGAGGGUAAACGGCCACAUUGGGACUGAGACACGGCCCAAACUCCUACGGGAGGCAGCAGUAGGGAAUUUUCGUCAAUGGGGGAAACCCUGAACGAGCAAUGCCGCGUGAGUGAAGAAGGUCUUCGGAUCGUAAAGCUCUGUUGUAAGUGAAGAACGGCUCAUAGAGGAAAUGCUAUGGGAGUGACGGUAGCUUACCAGAAAGCCACGGCUAACUACGUGCCAGYAGCCGCGGUAAUACGUAGGUGGCAAGCGUUAUCCGGAAUCAUUGGGCGUAAAGGGUGCGUAGGUGGCGUACUAAGUCUGUAGUAAAAGGCAAUGGCUCAACCAUUGUAAGCUAUGGAAACUGGUAUGCUGGAGUGCAGAAGAGGGCGAUGGAAUUCCAUGUGUAGCGGUAAAAUGCGUAGAUAUAUGGAGGAACACCAGUGGCGAAGGCGGUCGCCUGGUCUGUAACUGACACUGAGGCACGAAAGCGUGGGGAGCAAAUAGGAUUAGAUACCCUAGUAGUCCACGCCGUAAACGAUGAGAACUAAGUGUUGGAGAAAUUCAGUGCUGCAGUUAACGCAAUAAGUUCUCCGCCUGGGGAGUAUGCACGCAAGUUGAAACUCAAAGGAAUUGACGGGGGCCCGCACAAGCGUGGAGUAUGUGGUUUAAUUCGAAGCAACGCGAAGAACCUUACCAGGCCUUGACAUGGAAACAAAUACCCUAGAGAUAGGGGGAUAAUUAUGGAUCACACAGGUGGUGCAUGGUUGUCGUCAGCUCGUGUCGUGAGAUGUUGGGUUAAGUCCCGCAACGAGCGCAACCCUUGUCGCAUGUUACCAGCAUCAAGUUGGGGACUCAUGCGAGACUGCCGGUGACAAACCGGAGGAAGGUGGGGAUGACGUCAAAUCAUCAUGCCCCUUAUGGCCUGGGCUACACACGUACUACAAUGGCGACCACAAAGAGCAGCGACUUGGUGACAAGAAGCGAAUCUCAUAAAGAUCGUCUCAGUUCGGAUUGAAGUCUGCAACUCGACUUCAUGAAGUCGGAAUCGCUAGUAAUCGCAGAUCAGCAUGCUGCGGUGAAUACGUUCUCGGGCCUUGUACACACCGCCCGUCAAACCAUGGGAGUCAGUAAUACCCGAAGCCGGUGGCAUAACCGUAAGGAGUGAGCCGUCGAAGGUAGGACCGAUGACUGGGGUUAAGUCGUAACAAGGUAUCCCUACGGGAACGUGGGGAUGGAUCACCUCCUUUC</unformatted>
+    </sequence>
+  </information>
+  <stem_list>
+     0   18.0 [   10   14     22   26 ]                   (((((   )))))                 
+     1  470.0 [   18   20    920  922 ]                     (((   )))                   
+     2  298.5 [   28   38    559  568 ]             ((((.((((((   ))))))))))            
+     3  227.0 [   40   47    407  415 ]                ((((((((   )).))))))             
+     4  212.5 [   53   59    366  371 ]                 (((.(((   ))))))                
+     5   86.0 [   62   76     96  108 ]         (((..((((((((((   )))))))))))))         
+     6   85.5 [   79   83     88   92 ]                   (((((   )))))                 
+     7  220.5 [  115  117    324  326 ]                     (((   )))                   
+     8  188.5 [  124  135    242  251 ]            ((((((((..((   ))))))))))            
+     9  189.0 [  139  145    233  239 ]                 (((((((   )))))))               
+    10  164.0 [  147  150    178  181 ]                    ((((   ))))                  
+    11  163.5 [  155  161    166  172 ]                 (((((((   )))))))               
+    12  198.5 [  186  196    201  211 ]             (((((((((((   )))))))))))           
+    13  223.5 [  216  220    227  231 ]                   (((((   )))))                 
+    14  276.0 [  252  257    295  298 ]                  (((..(   ))))                  
+    15  275.0 [  259  271    279  289 ]           (((..((((((((   )))))))))))           
+    16  310.5 [  301  308    313  323 ]                ((((((((   ))))...))))           
+    17  338.5 [  328  333    344  349 ]                  ((((((   ))))))                
+    18  356.5 [  351  354    359  362 ]                    ((((   ))))                  
+    19  392.5 [  379  383    402  405 ]                   (.(((   ))))                  
+    20  393.5 [  387  391    396  400 ]                   (((((   )))))                 
+    21  433.0 [  418  421    445  448 ]                    ((((   ))))                  
+    22  433.5 [  428  431    436  439 ]                    ((((   ))))                  
+    23  480.5 [  450  452    509  508 ]                     (.(   ))                    
+    24  479.0 [  453  458    500  505 ]                  ((((((   ))))))                
+    25  478.5 [  468  476    481  489 ]               (((((((((   )))))))))             
+    26  534.5 [  512  516    553  557 ]                   (((((   )))))                 
+    27  527.5 [  517  519    536  538 ]                     (((   )))                   
+    28  537.5 [  523  527    548  552 ]                   (((((   )))))                 
+    29  536.5 [  533  534    539  540 ]                      ((   ))                    
+    30  733.0 [  579  581    885  887 ]                     (((   )))                   
+    31  726.0 [  582  583    869  870 ]                      ((   ))                    
+    32  682.0 [  589  598    766  775 ]              ((((.(.(((   ))))..))))            
+    33  630.5 [  600  618    643  662 ]     (((((((.(((((((((((   )))))))))..)))))))))  
+    34  632.0 [  624  629    635  640 ]                  ((((((   ))))))                
+    35  714.0 [  666  683    745  762 ]      (((((((((..(((((((   ))))))).)))))).)))    
+    36  706.0 [  684  695    717  728 ]            ((..((((((((   ))))))))..))          
+    37  704.5 [  699  701    708  710 ]                     (((   )))                   
+    38  739.5 [  733  737    742  744 ]                   (..((   )))                   
+    39  802.0 [  780  790    814  821 ]             ((((((...((   ))))))))              
+    40  802.0 [  794  797    807  810 ]                    ((((   ))))                  
+    41  857.5 [  832  837    878  883 ]                  ((((((   ))))))                
+    42  850.5 [  840  848    853  861 ]               (((((((((   )))))))))             
+    43  868.5 [  865  866    871  872 ]                      ((   ))                    
+    44  902.5 [  889  891    914  916 ]                     (((   )))                   
+    45  903.5 [  898  901    906  909 ]                    ((((   ))))                  
+    46 1160.0 [  925  937   1383 1395 ]           (((((.(((((((   )))))))))).))         
+    47 1159.0 [  939  940   1378 1379 ]                      ((   ))                    
+    48 1143.0 [  943  947   1339 1343 ]                   (((.(   ).)))                 
+    49 1091.5 [  948  959   1224 1236 ]            ((((((((((((   )).))))))))))         
+    50  971.5 [  964  967    976  979 ]                    ((((   ))))                  
+    51 1104.0 [  988  994   1214 1220 ]                 (((((((   )))))))               
+    52 1022.0 [ 1000 1007   1037 1045 ]                ((((((((   ))))).)))             
+    53 1019.5 [ 1011 1017   1022 1028 ]                 (((((((   )))))))               
+    54 1127.5 [ 1047 1064   1191 1209 ]      ((.((((..(((((((((   )))).)))...))))))))   
+    55 1087.5 [ 1068 1073   1102 1107 ]                  ((((((   ))))))                
+    56 1078.5 [ 1074 1076   1081 1083 ]                     (((   )))                   
+    57 1092.5 [ 1086 1089   1096 1099 ]                    ((((   ))))                  
+    58 1149.5 [ 1113 1116   1183 1186 ]                    ((((   ))))                  
+    59 1136.0 [ 1118 1124   1148 1154 ]                 (((((((   )))))))               
+    60 1136.5 [ 1128 1133   1140 1143 ]                  ((..((   ))))                  
+    61 1167.0 [ 1157 1164   1170 1177 ]                ((((((((   ))))))))              
+    62 1267.5 [ 1240 1246   1289 1295 ]                 (((((((   )))))))               
+    63 1267.5 [ 1252 1254   1281 1283 ]                     (((   )))                   
+    64 1266.5 [ 1257 1258   1275 1276 ]                      ((   ))                    
+    65 1266.5 [ 1262 1264   1269 1271 ]                     (((   )))                   
+    66 1317.5 [ 1306 1313   1322 1329 ]                ((((((((   ))))))))              
+    67 1360.0 [ 1349 1356   1364 1371 ]                ((((((((   ))))))))              
+    68 1449.5 [ 1398 1404   1495 1503 ]                 (.((.((   ))..))..)             
+    69 1449.0 [ 1408 1429   1469 1490 ]  ((((((((..((((((((((((   ))))))))))))..))))))))
+    70 1450.5 [ 1434 1448   1453 1465 ]         ((((((.((((..((   )).))))))))))         
+    71 1516.5 [ 1505 1514   1519 1528 ]              ((((((((((   ))))))))))            
+  </stem_list>
+  <edge_list>
+     0:  1o
+     1:  2i  3i  4i  5i  6i  7i  8i  9i 10i 11i 12i 13i 14i 15i 16i 17i 18i 19i 20i 21i 22i 23i 24i 25i 26i 27i 28i 29i 30i 31i 32i 33i 34i 35i 36i 37i 38i 39i 40i 41i 42i 43i 44i 45i
+     2:  3i  4i  5i  6i  7i  8i  9i 10i 11i 12i 13i 14i 15i 16i 17i 18i 19i 20i 21i 22i 23i 24i 25i 26i 27i 28i 29i
+     3:  4i  5i  6i  7i  8i  9i 10i 11i 12i 13i 14i 15i 16i 17i 18i 19i 20i
+     4:  5i  6i  7i  8i  9i 10i 11i 12i 13i 14i 15i 16i 17i 18i
+     5:  6i
+     6:
+     7:  8i  9i 10i 11i 12i 13i 14i 15i 16i
+     8:  9i 10i 11i 12i 13i
+     9: 10i 11i 12i 13i
+    10: 11i
+    11:
+    12:
+    13:
+    14: 15i
+    15:
+    16:
+    17:
+    18:
+    19: 20i
+    20:
+    21: 22i
+    22:
+    23: 24i 25i
+    24: 25i
+    25:
+    26: 27i 28i 29i
+    27: 28o 29o
+    28: 29i
+    29:
+    30: 31i 32i 33i 34i 35i 36i 37i 38i 39i 40i 41i 42i 43i
+    31: 32i 33i 34i 35i 36i 37i 38i 39i 40i 41o 42i 43o
+    32: 33i 34i 35i 36i 37i 38i
+    33: 34i
+    34:
+    35: 36i 37i 38i
+    36: 37i
+    37:
+    38:
+    39: 40i
+    40:
+    41: 42i 43i
+    42:
+    43:
+    44: 45i
+    45:
+    46: 47i 48i 49i 50i 51i 52i 53i 54i 55i 56i 57i 58i 59i 60i 61i 62i 63i 64i 65i 66i 67i
+    47: 48i 49i 50i 51i 52i 53i 54i 55i 56i 57i 58i 59i 60i 61i 62i 63i 64i 65i 66i 67i
+    48: 49i 50i 51i 52i 53i 54i 55i 56i 57i 58i 59i 60i 61i 62i 63i 64i 65i 66i
+    49: 50i 51i 52i 53i 54i 55i 56i 57i 58i 59i 60i 61i
+    50:
+    51: 52i 53i 54i 55i 56i 57i 58i 59i 60i 61i
+    52: 53i
+    53:
+    54: 55i 56i 57i 58i 59i 60i 61i
+    55: 56i 57i
+    56:
+    57:
+    58: 59i 60i 61i
+    59: 60i
+    60:
+    61:
+    62: 63i 64i 65i
+    63: 64i 65i
+    64: 65i
+    65:
+    66:
+    67:
+    68: 69i 70i
+    69: 70i
+    70:
+    71:
+  </edge_list>
+  <adjacency>
+        0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 
+     0  -  o  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+     1  o  -  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+     2  s  j  -  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+     3  s  j  j  -  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+     4  s  j  j  j  -  i  i  i  i  i  i  i  i  i  i  i  i  i  i  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+     5  s  j  j  j  j  -  i  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+     6  s  j  j  j  j  j  -  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+     7  s  j  j  j  j  s  s  -  i  i  i  i  i  i  i  i  i  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+     8  s  j  j  j  j  s  s  j  -  i  i  i  i  i  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+     9  s  j  j  j  j  s  s  j  j  -  i  i  i  i  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    10  s  j  j  j  j  s  s  j  j  j  -  i  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    11  s  j  j  j  j  s  s  j  j  j  j  -  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    12  s  j  j  j  j  s  s  j  j  j  s  s  -  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    13  s  j  j  j  j  s  s  j  j  j  s  s  s  -  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    14  s  j  j  j  j  s  s  j  s  s  s  s  s  s  -  i  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    15  s  j  j  j  j  s  s  j  s  s  s  s  s  s  j  -  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    16  s  j  j  j  j  s  s  j  s  s  s  s  s  s  s  s  -  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    17  s  j  j  j  j  s  s  s  s  s  s  s  s  s  s  s  s  -  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    18  s  j  j  j  j  s  s  s  s  s  s  s  s  s  s  s  s  s  -  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    19  s  j  j  j  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  -  i  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    20  s  j  j  j  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  -  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    21  s  j  j  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  -  i  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    22  s  j  j  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  -  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    23  s  j  j  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  -  i  i  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    24  s  j  j  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  -  i  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    25  s  j  j  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  j  -  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    26  s  j  j  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  -  i  i  i  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    27  s  j  j  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  -  o  o  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    28  s  j  j  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  o  -  i  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    29  s  j  j  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  o  j  -  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    30  s  j  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  -  i  i  i  i  i  i  i  i  i  i  i  i  i  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    31  s  j  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  -  i  i  i  i  i  i  i  i  i  o  i  o  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    32  s  j  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  j  -  i  i  i  i  i  i  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    33  s  j  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  j  j  -  i  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    34  s  j  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  j  j  j  -  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    35  s  j  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  j  j  s  s  -  i  i  i  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    36  s  j  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  j  j  s  s  j  -  i  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    37  s  j  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  j  j  s  s  j  j  -  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    38  s  j  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  j  j  s  s  j  s  s  -  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    39  s  j  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  j  s  s  s  s  s  s  s  -  i  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    40  s  j  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  j  s  s  s  s  s  s  s  j  -  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    41  s  j  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  o  s  s  s  s  s  s  s  s  s  -  i  i  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    42  s  j  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  j  s  s  s  s  s  s  s  s  s  j  -  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    43  s  j  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  o  s  s  s  s  s  s  s  s  s  j  s  -  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    44  s  j  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  -  i  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    45  s  j  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  -  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    46  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  -  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  s  s  s  s 
+    47  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  -  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  s  s  s  s 
+    48  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  j  -  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  s  s  s  s  s 
+    49  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  j  j  -  i  i  i  i  i  i  i  i  i  i  i  i  s  s  s  s  s  s  s  s  s  s 
+    50  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  j  j  j  -  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    51  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  j  j  j  s  -  i  i  i  i  i  i  i  i  i  i  s  s  s  s  s  s  s  s  s  s 
+    52  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  j  j  j  s  j  -  i  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    53  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  j  j  j  s  j  j  -  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    54  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  j  j  j  s  j  s  s  -  i  i  i  i  i  i  i  s  s  s  s  s  s  s  s  s  s 
+    55  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  j  j  j  s  j  s  s  j  -  i  i  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    56  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  j  j  j  s  j  s  s  j  j  -  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    57  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  j  j  j  s  j  s  s  j  j  s  -  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+    58  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  j  j  j  s  j  s  s  j  s  s  s  -  i  i  i  s  s  s  s  s  s  s  s  s  s 
+    59  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  j  j  j  s  j  s  s  j  s  s  s  j  -  i  s  s  s  s  s  s  s  s  s  s  s 
+    60  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  j  j  j  s  j  s  s  j  s  s  s  j  j  -  s  s  s  s  s  s  s  s  s  s  s 
+    61  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  j  j  j  s  j  s  s  j  s  s  s  j  s  s  -  s  s  s  s  s  s  s  s  s  s 
+    62  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  j  j  s  s  s  s  s  s  s  s  s  s  s  s  s  -  i  i  i  s  s  s  s  s  s 
+    63  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  j  j  s  s  s  s  s  s  s  s  s  s  s  s  s  j  -  i  i  s  s  s  s  s  s 
+    64  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  j  j  s  s  s  s  s  s  s  s  s  s  s  s  s  j  j  -  i  s  s  s  s  s  s 
+    65  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  j  j  s  s  s  s  s  s  s  s  s  s  s  s  s  j  j  j  -  s  s  s  s  s  s 
+    66  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  j  j  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  -  s  s  s  s  s 
+    67  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  j  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  -  s  s  s  s 
+    68  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  -  i  i  s 
+    69  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  -  i  s 
+    70  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  j  -  s 
+    71  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  - 
+  </adjacency>
+</XIOS>

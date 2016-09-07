@@ -1,0 +1,68 @@
+<XIOS version='2.0'>
+  <information>
+  </information>
+  <stem_list>
+     0  21.5 [   6  14    29  37 ]       (((((((((   )))))))))      
+     1  53.5 [  41  50    57  66 ]      ((((((((((   ))))))))))     
+     2  85.0 [  68  81    89 103 ]  ((((((((((((((   )))))))))).))))
+     3 196.5 [ 106 112   281 287 ]         (((((((   )))))))        
+     4 170.0 [ 117 122   218 224 ]          ((((((   )).))))        
+     5 170.5 [ 127 129   212 214 ]             (((   )))            
+     6 171.5 [ 137 143   200 205 ]         (((.(((   ))))))         
+     7 169.0 [ 147 148   190 191 ]              ((   ))             
+     8 161.5 [ 151 159   164 172 ]       (((((((((   )))))))))      
+     9 180.0 [ 175 177   183 185 ]             (((   )))            
+    10 246.0 [ 225 233   259 267 ]       (((..((((   ))))..)))      
+    11 246.5 [ 237 244   249 256 ]        ((((((((   ))))))))       
+    12 298.0 [ 271 277   319 324 ]         (.(((((   ))))))         
+    13 299.5 [ 288 297   302 311 ]      ((((((((((   ))))))))))     
+    14 371.0 [ 325 326   416 417 ]              ((   ))             
+    15 336.5 [ 330 334   339 343 ]           (((((   )))))          
+    16 361.5 [ 344 350   373 379 ]         (((((((   )))))))        
+    17 361.5 [ 355 358   365 368 ]            ((((   ))))           
+    18 393.5 [ 381 391   396 406 ]     (((((((((((   )))))))))))    
+  </stem_list>
+  <edge_list>
+     0:
+     1:
+     2:
+     3:  4i  5i  6i  7i  8i  9i 10i 11i 12o
+     4:  5i  6i  7i  8i  9i
+     5:  6i  7i  8i  9i
+     6:  7i  8i  9i
+     7:  8i  9i
+     8:
+     9:
+    10: 11i
+    11:
+    12: 13i
+    13:
+    14: 15i 16i 17i 18i
+    15:
+    16: 17i
+    17:
+    18:
+  </edge_list>
+  <adjacency>
+        0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 
+     0  -  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+     1  s  -  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+     2  s  s  -  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s  s 
+     3  s  s  s  -  i  i  i  i  i  i  i  i  o  s  s  s  s  s  s 
+     4  s  s  s  j  -  i  i  i  i  i  s  s  s  s  s  s  s  s  s 
+     5  s  s  s  j  j  -  i  i  i  i  s  s  s  s  s  s  s  s  s 
+     6  s  s  s  j  j  j  -  i  i  i  s  s  s  s  s  s  s  s  s 
+     7  s  s  s  j  j  j  j  -  i  i  s  s  s  s  s  s  s  s  s 
+     8  s  s  s  j  j  j  j  j  -  s  s  s  s  s  s  s  s  s  s 
+     9  s  s  s  j  j  j  j  j  s  -  s  s  s  s  s  s  s  s  s 
+    10  s  s  s  j  s  s  s  s  s  s  -  i  s  s  s  s  s  s  s 
+    11  s  s  s  j  s  s  s  s  s  s  j  -  s  s  s  s  s  s  s 
+    12  s  s  s  o  s  s  s  s  s  s  s  s  -  i  s  s  s  s  s 
+    13  s  s  s  s  s  s  s  s  s  s  s  s  j  -  s  s  s  s  s 
+    14  s  s  s  s  s  s  s  s  s  s  s  s  s  s  -  i  i  i  i 
+    15  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  -  s  s  s 
+    16  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  s  -  i  s 
+    17  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  s  j  -  s 
+    18  s  s  s  s  s  s  s  s  s  s  s  s  s  s  j  s  s  s  - 
+  </adjacency>
+</XIOS>
