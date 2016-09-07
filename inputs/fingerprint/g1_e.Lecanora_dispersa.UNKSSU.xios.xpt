@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<XIOS_fingerprint>
+    <query>
+        <query_id>/home/huang147/reactor/holder20160220/g1_e.Lecanora_dispersa.UNKSSU.xios</query_id>
+        <query_vertex>10</query_vertex>
+        <query_edge>11</query_edge>
+    </query>
+
+    <fingerprint>
+        <type>random</type>
+        <iteration>500000</iteration>
+        <program>fingerprint_random.pl v1.1.4.8</program>
+        <time_elapsed>429.472428</time_elapsed>
+    </fingerprint>
+    <database>
+        <database_id>/home/huang147/Motif_fingerprint/2_to_7_stems_topologies.removed_not_true.mini_dfs.txt.removed_redundant.with_label.motif.storable</database_id>
+    </database>
+
+    <motif_list>
+        <motif_n>3</motif_n>
+        <motif>
+            <id>7_36217</id>
+            <count>190964</count>
+            <first_observed>1</first_observed>
+            <encoded_dfs>0428414c61651094a11a</encoded_dfs>
+            <mapping>1</mapping>
+        </motif>
+        <motif>
+            <id>7_37624</id>
+            <count>176306</count>
+            <first_observed>3</first_observed>
+            <encoded_dfs>0428410c708116b8</encoded_dfs>
+            <mapping>3</mapping>
+        </motif>
+        <motif>
+            <id>7_19085</id>
+            <count>132730</count>
+            <first_observed>8</first_observed>
+            <encoded_dfs>0428414c61651016b8</encoded_dfs>
+            <mapping>2</mapping>
+        </motif>
+    </motif_list>
+
+</XIOS_fingerprint>

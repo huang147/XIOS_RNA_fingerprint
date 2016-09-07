@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<XIOS_fingerprint>
+    <query>
+        <query_id>/home/huang147/reactor/holder20160220/g1_b.Phormidium_sp.N182C3tLEU.xios</query_id>
+        <query_vertex>13</query_vertex>
+        <query_edge>16</query_edge>
+    </query>
+
+    <fingerprint>
+        <type>random</type>
+        <iteration>500000</iteration>
+        <program>fingerprint_random.pl v1.1.4.8</program>
+        <time_elapsed>421.693597</time_elapsed>
+    </fingerprint>
+    <database>
+        <database_id>/home/huang147/Motif_fingerprint/2_to_7_stems_topologies.removed_not_true.mini_dfs.txt.removed_redundant.with_label.motif.storable</database_id>
+    </database>
+
+    <motif_list>
+        <motif_n>7</motif_n>
+        <motif>
+            <id>7_36217</id>
+            <count>92149</count>
+            <first_observed>1</first_observed>
+            <encoded_dfs>0428414c61651094a11a</encoded_dfs>
+            <mapping>4</mapping>
+        </motif>
+        <motif>
+            <id>2_2</id>
+            <count>90512</count>
+            <first_observed>7</first_observed>
+            <encoded_dfs>04</encoded_dfs>
+            <mapping>1</mapping>
+        </motif>
+        <motif>
+            <id>7_19085</id>
+            <count>85912</count>
+            <first_observed>3</first_observed>
+            <encoded_dfs>0428414c61651016b8</encoded_dfs>
+            <mapping>8</mapping>
+        </motif>
+        <motif>
+            <id>7_42280</id>
+            <count>75650</count>
+            <first_observed>10</first_observed>
+            <encoded_dfs>0428414c616570818589141a</encoded_dfs>
+            <mapping>2</mapping>
+        </motif>
+        <motif>
+            <id>7_37624</id>
+            <count>70493</count>
+            <first_observed>6</first_observed>
+            <encoded_dfs>0428410c708116b8</encoded_dfs>
+            <mapping>6</mapping>
+        </motif>
+        <motif>
+            <id>7_32198</id>
+            <count>66496</count>
+            <first_observed>5</first_observed>
+            <encoded_dfs>0428414c61657081858914b8c1</encoded_dfs>
+            <mapping>1</mapping>
+        </motif>
+        <motif>
+            <id>7_38330</id>
+            <count>18788</count>
+            <first_observed>2</first_observed>
+            <encoded_dfs>0428414c61657081858916b8</encoded_dfs>
+            <mapping>1</mapping>
+        </motif>
+    </motif_list>
+
+</XIOS_fingerprint>

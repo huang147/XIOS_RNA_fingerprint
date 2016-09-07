@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<XIOS_fingerprint>
+    <query>
+        <query_id>/home/huang147/reactor/holder20160220/g2_c.Nicotiana_tabacum.BL16i1.xios</query_id>
+        <query_vertex>14</query_vertex>
+        <query_edge>21</query_edge>
+    </query>
+
+    <fingerprint>
+        <type>random</type>
+        <iteration>500000</iteration>
+        <program>fingerprint_random.pl v1.1.4.8</program>
+        <time_elapsed>548.769859</time_elapsed>
+    </fingerprint>
+    <database>
+        <database_id>/home/huang147/Motif_fingerprint/2_to_7_stems_topologies.removed_not_true.mini_dfs.txt.removed_redundant.with_label.motif.storable</database_id>
+    </database>
+
+    <motif_list>
+        <motif_n>4</motif_n>
+        <motif>
+            <id>7_18408</id>
+            <count>202043</count>
+            <first_observed>2</first_observed>
+            <encoded_dfs>0428414c61657081858934a1b8c1c5</encoded_dfs>
+            <mapping>4</mapping>
+        </motif>
+        <motif>
+            <id>7_36615</id>
+            <count>124220</count>
+            <first_observed>3</first_observed>
+            <encoded_dfs>0428414c61657081858994a1a5a9ad38c1</encoded_dfs>
+            <mapping>2</mapping>
+        </motif>
+        <motif>
+            <id>2_2</id>
+            <count>100054</count>
+            <first_observed>1</first_observed>
+            <encoded_dfs>04</encoded_dfs>
+            <mapping>1</mapping>
+        </motif>
+        <motif>
+            <id>7_32198</id>
+            <count>73683</count>
+            <first_observed>5</first_observed>
+            <encoded_dfs>0428414c61657081858914b8c1</encoded_dfs>
+            <mapping>2</mapping>
+        </motif>
+    </motif_list>
+
+</XIOS_fingerprint>
