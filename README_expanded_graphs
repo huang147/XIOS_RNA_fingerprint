@@ -1,0 +1,4 @@
+    We selected a set of 177 RNA graphs containing up to 25 vertices from the curated data set, and create an expanded set by embedding subgraphs, randomly selected according to probability of occurrence, from the decoy database into these RNA graphs until each RNA graph contained 30 vertices. 
+    As a control, we also created a decoy set of 45 graphs with 30 vertices, by random embedding of subgraphs from the decoy database only, i.e., graphs with no information from real biological structures except the frequency of occurrence of subgraphs in the known structures. 
+    Both the expanded and the decoy graph sets are completely free of size effects since they all have exactly the same number of stems. 
+

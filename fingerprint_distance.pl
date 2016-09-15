@@ -99,7 +99,7 @@ my $parent = $$pc{parent};
 my $child  = $$pc{child};
 my %dp;
 
-my $input_dir = $cwd."/inputs/fingerprint/";
+my $input_dir = $cwd."/curated_graphs/fingerprint/";
 if ( defined $option{d} ) {
     $input_dir = $option{d};
 }
