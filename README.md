@@ -3,7 +3,9 @@ Source code for XIOS RNA fingerprint generation and comparison
 
 # unzip the input RNA graph files
 tar -xvzf expanded_graphs.tar.gz  
+
 tar -xvzf incomplete_graphs.tar.gz
+
 tar -xvzf curated_graphs.tar.gz  
 
 # generate RNA fingerprint
