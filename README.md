@@ -3,25 +3,39 @@ Source code for XIOS RNA fingerprint generation and comparison
 
 # unzip the input RNA graph files
 tar -xvzf expanded_graphs.tar.gz  
+
 tar -xvzf incomplete_graphs.tar.gz
+
 tar -xvzf curated_graphs.tar.gz  
 
 # generate RNA fingerprint
 perl fingerprint_shred.pl -i ./curated_graphs/xios_graph/ -w ./curated_graphs/xios_graph/
+
 perl fingerprint_shred.pl -i ./expanded_graphs/xios_graph/ -w ./expanded_graphs/xios_graph/
+
 perl fingerprint_shred.pl -i ./incomplete_graphs/remove_00_percent_stems/xios_graph/ -w ./incomplete_graphs/remove_00_percent_stems/xios_graph/
+
 perl fingerprint_shred.pl -i ./incomplete_graphs/remove_10_percent_stems/xios_graph/ -w ./incomplete_graphs/remove_10_percent_stems/xios_graph/
+
 perl fingerprint_shred.pl -i ./incomplete_graphs/remove_30_percent_stems/xios_graph/ -w ./incomplete_graphs/remove_30_percent_stems/xios_graph/
+
 perl fingerprint_shred.pl -i ./incomplete_graphs/remove_50_percent_stems/xios_graph/ -w ./incomplete_graphs/remove_50_percent_stems/xios_graph/
+
 perl fingerprint_shred.pl -i ./incomplete_graphs/remove_70_percent_stems/xios_graph/ -w ./incomplete_graphs/remove_70_percent_stems/xios_graph/
 
 # calculate RNA fingerprint similarity 
 perl fingerprint_distance.pl -d ./curated_graphs/fingerprint/
+
 perl fingerprint_distance.pl -d ./expanded_graphs/fingerprint/
+
 perl fingerprint_distance.pl -d ./incomplete_graphs/remove_00_percent_stems/fingerprint/
+
 perl fingerprint_distance.pl -d ./incomplete_graphs/remove_10_percent_stems/fingerprint/
+
 perl fingerprint_distance.pl -d ./incomplete_graphs/remove_30_percent_stems/fingerprint/
+
 perl fingerprint_distance.pl -d ./incomplete_graphs/remove_50_percent_stems/fingerprint/
+
 perl fingerprint_distance.pl -d ./incomplete_graphs/remove_70_percent_stems/fingerprint/
 
 
