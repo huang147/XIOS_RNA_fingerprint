@@ -3,234 +3,37 @@ Source code for XIOS RNA fingerprint generation and comparison
 
 # unzip the input RNA graph files
 tar -xvzf expanded_graphs.tar.gz  
-
 tar -xvzf incomplete_graphs.tar.gz
-
 tar -xvzf curated_graphs.tar.gz  
 
 # generate RNA fingerprint
-perl fingerprint_shred.pl -i ./inputs/xios_graph/ -w ./inputs/xios_graph/
+perl fingerprint_shred.pl -i ./curated_graphs/xios_graph/ -w ./curated_graphs/xios_graph/
+perl fingerprint_shred.pl -i ./expanded_graphs/xios_graph/ -w ./expanded_graphs/xios_graph/
+perl fingerprint_shred.pl -i ./incomplete_graphs/remove_00_percent_stems/xios_graph/ -w ./incomplete_graphs/remove_00_percent_stems/xios_graph/
+perl fingerprint_shred.pl -i ./incomplete_graphs/remove_10_percent_stems/xios_graph/ -w ./incomplete_graphs/remove_10_percent_stems/xios_graph/
+perl fingerprint_shred.pl -i ./incomplete_graphs/remove_30_percent_stems/xios_graph/ -w ./incomplete_graphs/remove_30_percent_stems/xios_graph/
+perl fingerprint_shred.pl -i ./incomplete_graphs/remove_50_percent_stems/xios_graph/ -w ./incomplete_graphs/remove_50_percent_stems/xios_graph/
+perl fingerprint_shred.pl -i ./incomplete_graphs/remove_70_percent_stems/xios_graph/ -w ./incomplete_graphs/remove_70_percent_stems/xios_graph/
 
 # calculate RNA fingerprint similarity 
-perl fingerprint_distance.pl -d ./inputs/fingerprint/
+perl fingerprint_distance.pl -d ./curated_graphs/fingerprint/
+perl fingerprint_distance.pl -d ./expanded_graphs/fingerprint/
+perl fingerprint_distance.pl -d ./incomplete_graphs/remove_00_percent_stems/fingerprint/
+perl fingerprint_distance.pl -d ./incomplete_graphs/remove_10_percent_stems/fingerprint/
+perl fingerprint_distance.pl -d ./incomplete_graphs/remove_30_percent_stems/fingerprint/
+perl fingerprint_distance.pl -d ./incomplete_graphs/remove_50_percent_stems/fingerprint/
+perl fingerprint_distance.pl -d ./incomplete_graphs/remove_70_percent_stems/fingerprint/
+
 
 # curated graphs
 A set of curated RNA structures have been collected from the literature and a variety of biological databases and is extended in this work. This set of known structures has been carefully selected to contain pseudoknots, to cover a broad range of lengths, and to have been the subject of extensive expert curation by the biological community. This curated set includes 206 structures of transfer RNA, Ribonuclease P RNA, transfer-messenger RNA, group I and group II self-splicing introns, and 5S, 16S and 23S ribosomal RNA. The structures in this curated set have been reviewed to ensure they reflect expert opinion on the correct structure, and to ensure that the reported structures are as accurate as possible given existing experimental data such as X-ray crystallography and covariance analysis. The curated structures have been screened to ensure that all structures are full-length, and no pair of structures has greater than 50% sequence identity. Multiple families of the curated structures contain pseudoknots. 
 
-# statistics of curated graphs
-ID	Class	Subclass	Genus	Species	Suffix	N_base	N_vertex	N_edge	N_pseudoknot
-1	tRNA	NA	NA	NA	3EPH	68	9	23	9
-2	tRNA	NA	NA	NA	2ZM5	75	9	23	9
-3	tRNA	NA	NA	NA	1TTT	75	10	23	9
-4	tRNA	NA	NA	NA	1GAX	74	7	13	5
-5	tRNA	NA	NA	NA	1QTQ	74	7	13	5
-6	tRNA	NA	NA	NA	1QU2	74	7	13	5
-7	tRNA	NA	NA	NA	2BTE	82	7	13	5
-8	tRNA	NA	NA	NA	2FMT	76	7	13	5
-9	tRNA	NA	NA	NA	2ZUF	77	7	13	5
-10	tRNA	NA	NA	NA	2CSX	74	7	13	5
-11	tRNA	NA	NA	NA	1F7U	74	7	13	5
-12	tRNA	NA	NA	NA	1C0A	76	7	13	5
-13	tRNA	NA	NA	NA	1H4S	76	7	14	5
-14	tRNA	NA	NA	NA	1QF6	75	8	17	5
-15	tRNA	NA	NA	NA	2ZZM	87	7	13	4
-16	tRNA	NA	NA	NA	2DXI	74	7	13	4
-17	tmRNA	NA	Gracilaria	tenuistipitata	AY673996	396	6	11	1
-18	tmRNA	NA	Odontella	sinensis	TRW-2839	371	7	16	1
-19	tmRNA	NA	Porphyra	purpurea	TRW-2787	323	8	19	1
-20	tmRNA	NA	Leuconostoc	mesenteroides	AF375574	307	12	27	5
-21	tmRNA	NA	Staphylococcus	epidermidis	AF375586	311	11	23	4
-22	tmRNA	NA	Chlorobium	tepidum	TRW-194439	404	13	27	4
-23	tmRNA	NA	Campylobacter	lari	TRW-306263	359	13	35	4
-24	tmRNA	NA	Nostoc	punctiforme	TRW-63737	390	15	42	5
-25	tmRNA	NA	Tremblaya	princeps	AF481102	264	11	28	3
-26	tmRNA	NA	Salinibacter	ruber	CP000159	369	13	35	4
-27	tmRNA	NA	Leptospira	interrogans	AE016823	350	13	35	4
-28	tmRNA	NA	Dehalococcoides	ethenogenes	CP000027	352	13	35	4
-29	tmRNA	NA	Borrelia	garinii	CP000013	363	14	38	4
-30	tmRNA	NA	Magnetococcus	marinus	CP000471	366	12	30	2
-31	tmRNA	NA	Propionibacterium	acnes	TRW-1747-3	353	13	42	3
-32	tmRNA	NA	Treponema	pallidum	TRW-243276	354	14	47	4
-33	tmRNA	NA	Mycoplasma	arthritidis	TRW-243272	394	14	47	4
-34	tmRNA	NA	Mycoplasma	pulmonis	AL445565	387	14	47	4
-35	tmRNA	NA	Acidimicrobium	ferrooxidans	TRW-920	341	14	47	4
-36	tmRNA	NA	Chlamydia	muridarum	TRW-83560	421	14	47	4
-37	tmRNA	NA	Mycoplasma	mycoides	BX842642	411	15	52	4
-38	tmRNA	NA	Mycoplasma	gallisepticum	AE015450	408	16	56	4
-39	tmRNA	NA	Gemmata	obscuriglobus	TRW-214688	412	16	56	4
-40	tmRNA	NA	uncultured	bacterium	TRW-32045-4	369	16	67	5
-41	tmRNA	NA	Mycoplasma	pneumoniae	TRW-272634	387	14	40	5
-42	tmRNA	NA	Streptomyces	aureofaciens	AY616521	382	14	40	5
-43	tmRNA	NA	Ureaplasma	parvum	AE002154	413	14	40	5
-44	tmRNA	NA	Sulfurihydrogenibium	azorense	TRW-204536	351	14	40	5
-45	tmRNA	NA	Bacillus	subtilis	TRW-1423	363	15	53	5
-46	tmRNA	NA	Mesostigma	viride	AF166114	359	15	53	5
-47	tmRNA	NA	Vibrio	fischeri	CP000020	367	15	53	5
-48	tmRNA	NA	Bacillusphage	G	TRW-12333	312	11	35	3
-49	tmRNA	NA	envi	sequ	TRW-32045-1	355	15	53	5
-50	tmRNA	NA	Francisella	tularensis	AM286280	421	16	58	5
-51	tmRNA	NA	envi	sequ	TRW-351057-3	355	16	58	5
-52	tmRNA	NA	Aster	yellows	TRW-322098	426	16	59	6
-53	tmRNA	NA	Acinetobacter	sp	CR543861	360	14	48	3
-54	tmRNA	NA	Geobacter	metallireducens	CP000148	356	17	74	6
-55	tmRNA	NA	Coprothermobacter	proteolyticus	TRW-351627	353	15	45	6
-56	tmRNA	NA	Fibrobacter	succinogenes	TRW-59374	361	15	45	6
-57	tmRNA	NA	Clostridium	perfringens	AP003190	358	15	45	6
-58	tmRNA	NA	Mycoplasma	hyopneumoniae	TRW-295358	424	16	42	9
-59	tmRNA	NA	envi	sequ	TRW-204433	356	14	32	6
-60	tmRNA	NA	Bacteriovorax	marinus	TRW-97084	385	16	51	7
-61	tmRNA	NA	envi	sequ	TRW-2-2	356	14	33	6
-62	tmRNA	NA	envi	sequ	TRW-2-1	365	15	46	6
-63	tmRNA	NA	Porphyromonas	gingivalis	TRW-242619	407	18	71	7
-64	tmRNA	NA	uncultured	bacterium	TRW-45456	408	19	77	7
-65	tmRNA	NA	Mycobacteriophage	Bxz1	AY129337	437	18	71	4
-66	rnasep	m	Methanococcus	maripaludis	NA	233	10	30	1
-67	rnasep	m	Methanocaldococcus	jannaschii	NA	252	10	30	1
-68	rnasep	m	Archaeoglobus	fulgidus	NA	229	10	30	1
-69	rnasep	b	Staphylococcus	epidermidis	NA	401	19	76	1
-70	rnasep	b	Ureaplasma	urealyticum	NA	370	19	76	1
-71	rnasep	b	Mycoplasma	fermentans	NA	302	15	42	1
-72	rnasep	b	Mycoplasma	flocculare	NA	412	15	46	1
-73	rnasep	ar	Halococcus	morrhuae	NA	475	23	146	3
-74	rnasep	ar	Halobacterium	salinarum	NA	375	19	106	3
-75	rnasep	ar	Natronobacterium	gregoryi	NA	474	22	139	3
-76	rnasep	ar	Pyrococcus	abyssi	NA	330	16	78	4
-77	rnasep	ar	Sulfolobus	acidocaldarius	NA	315	15	68	4
-78	rnasep	ar	Methanobacterium	thermoautotrophicum	DH	293	15	68	4
-79	rnasep	a2	Nitrosomonas	europaea	NA	285	14	54	4
-80	rnasep	a1	Carboxydothermus	hydrogenoformans	NA	331	16	68	4
-81	rnasep	a2	Neisseria	meningitidis	NA	360	16	68	4
-82	rnasep	a2	Alcaligenes	eutrophus	NA	341	15	56	4
-83	rnasep	a4	Aspergillus	nidulans	NA	385	17	70	4
-84	rnasep	c	Thermomicrobium	roseum	NA	350	18	78	5
-85	rnasep	a1	Buchnera	APS	NA	376	17	74	5
-86	rnasep	a5	Chlorobium	tepidum	NA	381	18	79	5
-87	rnasep	a5	Bordetella	pertussis	NA	414	20	92	5
-88	rnasep	ax	Streptomyces	lividans	NA	405	18	75	4
-89	rnasep	a4	Pseudoanabaena	sp	PCC6903	450	18	74	4
-90	rnasep	a3	Chlamydophila	pneumoniae	CWL029	406	19	81	5
-91	rnasep	ar	Thermoplasma	volcanum	NA	305	16	70	4
-92	rnasep	ar	Methanosarcina	barkeri	NA	371	18	76	4
-93	rnasep	ar	Aeropyrum	pernix	NA	330	15	73	3
-94	rnasep	b	Mycoplasma	pneumoniae	NA	369	20	89	7
-95	g1	e	Exophiala	nigra	2ESSU	445	19	28	5   fungi
-96	16S	c	Pilostyles	thurberi	NA	1464	63	188	4    
-97	16S	b	Clostridium	innocuum	NA	1529	72	279	5
-98	16S	m	Physarum	polycephalum	NA	1844	65	248	5
-99	16S	e	Weiseria	palustris	NA	1373	64	257	5
-100	16S	b	Petrotoga	miotherma	NA	1326	67	273	5
-101	16S	e	Balamuthia	mandrillaris	NA	1972	69	262	4
-102	16S	m	Drosophila	virilis	NA	783	34	85	2
-103	16S	m	Caenorhabditis	elegans	NA	678	32	83	3
-104	16S	m	Artemia	franciscana	NA	711	31	74	1
-105	16S	m	Chorthippus	parallelus	NA	789	28	55	1
-106	16S	m	Harpactes	ardens	NA	950	34	83	1
-107	16S	m	Paramecium	tetraurelia	NA	1609	56	194	1
-108	16S	m	Chlamydomonas	reinhardtii	NA	1188	44	128	1
-109	16S	m	Metridium	senile	NA	1088	45	128	1
-110	16S	m	Pedinomonas	minor	NA	1170	54	170	1
-111	16S	m	Suillus	sinuspaulianus	NA	1976	69	246	1
-112	16S	m	Tetrahymena	pyriformis	NA	1632	53	164	1
-113	16S	m	Paracentrotus	lividus	NA	877	35	91	1
-114	16S	m	Acanthamoeba	castellanii	NA	1523	61	210	1
-115	16S	m	Podospora	anserina	NA	1759	62	214	1
-116	g1	e	Bangia	fuscopurpurea	7C1SSU	475	24	49	1   seaweed
-117	g1	e	Sphaerozosma	granulatum	C1SSU	432	18	34	1   algae
-118	g1	e	Bensingtonia	ciliata	JCM6865C1SSU	334	14	20	1   fungi
-119	g1	e	Cosmocladium	saxonicum	C1SSU	443	16	27	1   algae
-120	g1	e	Aureoumbra	lagunensis	C1SSU	438	21	42	1   algae
-121	g1	e	Pneumocystis	carinii	C1SSU	404	19	31	1   yeast-like fungi
-122	g1	e	Mesotaenium	caldariorum	C1SSU	414	21	33	1   green algae
-123	g1	e	Chlorella	sorokiniana	C1SSU	478	21	34	1   micro algae
-124	g1	e	Exophiala	dermatitidis	C1SSU	425	21	34	1  fungi, thermophilic black yeast 
-125	g1	e	Dunaliella	parva	C1SSU	394	21	36	1   algae
-126	g1	e	Bensingtonia	yamatoana	JCM2896C1SSU	468	24	39	1   yeast-like fungi
-127	g1	e	Ajellomyces	capsulatus	CBS21353C1SSU	407	19	27	1   fungi
-128	g1	e	Drechslerella	brochopaga	C1SSU	405	16	25	1   fungi
-129	g1	e	Genicularia	spirotaenia	C1SSU	382	17	31	1   algae
-130	g1	e	Chlorella	luteoviridis	BC1SSU	439	21	28	1   algae
-131	g1	e	Protomyces	macrosporus	C1SSU	394	18	25	1   fungi
-132	g1	e	Penicilliopsis	clavariiformis	C1SSU	388	15	22	1   fungi
-133	g1	e	Protoderma	sarcinoidea	C1SSU	457	19	31	1Exophiala  green algae
-134	g1	e	Characium	saccatum	C1SSU	461	21	35	1   algae
-135	g1	e	Chlorella	saccharophila	C1SSU	394	19	30	1   algae
-136	g1	e	Sclerotinia	sclerotiorum	1837C1LSU	320	14	25	1   fungi
-137	g1	e	Tetrahymena	pigmentosa	C1LSU	422	19	30	1   protozoa
-138	g1	e	Pneumocystis	carinii	Pc3C1LSU	375	15	25	1  yeast-like fungi 
-139	g1	e	Arxula	adeninivorans	C1LSU	425	18	29	1   yeast
-140	g1	e	Monilinia	fructicola	C1SSU	432	17	22	1   fungi 
-141	g1	e	Protomyces	inouyei	C1SSU	353	20	31	1   fungi
-142	g1	e	Staurastrum	sp	M753C1SSU	410	16	20	1   green algae
-143	g1	m	Suillus	luteus	A1LSU	356	14	15	1
-144	g1	e	Cryptendoxyla	hypophloia	ESSU	448	19	19	1   fungi
-145	g1	b	Phormidium	sp	N182C3tLEU	269	13	16	1
-146	g1	e	Lecanora	dispersa	UNKSSU	311	10	11	1   lichen
-147	g1	b	Synechococcus	elongatus	C3tLEU	252	13	13	1
-148	g1	m	Schizosaccharomyces	pombe	B1OX1	270	8	4	1
-149	g1	b	Prochlorothrix	hollandica	1C3trnL	281	13	12	1
-150	g1	b	Dermocarpa	sp	ATCC29371C3tMET	266	13	11	1
-151	5S	a	Halobacterium	salinarum	NA	120	5	6	0
-152	5S	e	Phytomonas	sp	NA	123	5	6	0
-153	5S	e	Quercus	petraea	NA	119	5	6	0
-154	5S	a	Halorubrum	saccharovorum	NA	122	5	6	0
-155	5S	a	Methanothermus	fervidus	NA	123	5	6	0
-156	5S	e	Filobasidiella	neoformans	NA	117	5	6	0
-157	5S	e	Euglena	gracilis	NA	120	5	6	0
-158	5S	e	Homo	sapiens	NA	118	5	6	0
-159	5S	e	Kabatiella	microsticta	NA	119	5	6	0
-160	5S	e	Saccharomyces	cerevisiae	NA	117	5	6	0
-161	5S	e	Schizochytrium	aggregatum	NA	118	5	6	0
-162	5S	e	Schizosaccharomyces	pombe	NA	118	5	6	0
-163	5S	e	Lentinula	edodes	NA	119	5	6	0
-164	5S	e	Ascobolus	immersus	NA	118	5	6	0
-165	5S	e	Caenorhabditis	elegans	NA	118	5	6	0
-166	5S	a	Thermoplasma	acidophilum	NA	122	5	6	0
-167	5S	a	Pyrococcus	woesei	NA	123	5	6	0
-168	5S	b	Synechococcus	sp	NA	119	4	4	0
-169	5S	b	Thermus	sp	NA	119	4	4	0
-170	5S	b	Thermus	thermophilus	NA	120	4	4	0
-171	5S	b	Rhodobacter	capsulatus	NA	118	4	4	0
-172	5S	b	Acidithiobacillus	ferrooxidans	NA	119	4	4	0
-173	5S	b	Arthrobacter	oxydans	NA	120	4	4	0
-174	5S	b	Agrobacterium	tumefaciens	NA	119	4	4	0
-175	5S	b	Mycoplasma	genitalium	NA	117	4	4	0
-176	5S	b	Halorhodospira	halophila	NA	120	4	4	0
-177	5S	b	Pseudonocardia	hydrocarbonoxydans	NA	119	4	4	0
-178	5S	b	Pseudomonas	stutzeri	NA	117	4	4	0
-179	5S	b	Deinococcus	radiodurans	NA	123	4	4	0
-180	5S	b	Geobacillus	stearothermophilus	NA	118	4	4	0
-181	g2	m	Pylaiella	littoralis	BLSU	2411	28	67	0
-182	g2	m	Marchantia	polymorpha	BtrnSi1	992	36	99	0
-183	g2	b	Escherichia	coli	ATBDi1	1894	24	52	0
-184	g2	m	Marchantia	polymorpha	ASSU	1610	24	62	0
-185	g2	c	Nicotiana	tabacum	AtrnAi1	712	23	53	0
-186	g2	m	Petunia	x	AOX2i1	1356	21	45	0
-187	g2	c	Nicotiana	tabacum	AA6i1	698	19	37	0
-188	g2	c	Nicotiana	tabacum	AtrnIi1	710	19	36	0
-189	g2	c	Nicotiana	tabacum	BpDi1	742	19	37	0
-190	g2	c	Nicotiana	tabacum	BS16i1	861	18	35	0
-191	g2	c	Nicotiana	tabacum	BtrnGi1	691	18	26	0
-192	g2	c	Nicotiana	tabacum	BRPC1i1	739	20	45	0
-193	g2	c	Nicotiana	tabacum	BND1i1	1148	17	28	0
-194	g2	c	Nicotiana	tabacum	BND2i1	679	19	33	0
-195	g2	c	Nicotiana	tabacum	BL16i1	1019	14	21	0
-196	g2	c	Nicotiana	tabacum	BpBi1	753	16	28	0
-197	g2	m	Agrocybe	aegerita	BLSU	1762	20	29	0
-198	g2	m	Pisum	sativum	BS10i1	934	24	40	0
-199	g2	m	Cryphonectria	parasitica	BSSU	2069	20	42	0
-200	23S	m	Xenopus	laevis	NA	1634	69	138	0
-201	23S	m	Katharina	tunicata	NA	1272	47	85	0
-202	23S	m	Artemia	salina	NA	1135	46	84	0
-203	23S	m	Euhadra	herklotsi	NA	1021	43	79	0
-204	23S	m	Albinaria	caerulea	NA	1031	43	80	0
-205	23S	m	Mytilus	edulis	NA	1241	53	99	0
-206	23S	m	Pecten	maximus	NA	1401	52	100	0
-
 
 # expanded_graphs
-    We selected a set of 177 RNA graphs containing up to 25 vertices from the curated data set, and create an expanded set by embedding subgraphs, randomly selected according to probability of occurrence, from the decoy database into these RNA graphs until each RNA graph contained 30 vertices. 
-    As a control, we also created a decoy set of 45 graphs with 30 vertices, by random embedding of subgraphs from the decoy database only, i.e., graphs with no information from real biological structures except the frequency of occurrence of subgraphs in the known structures. 
-    Both the expanded and the decoy graph sets are completely free of size effects since they all have exactly the same number of stems. 
+We selected a set of 177 RNA graphs containing up to 25 vertices from the curated data set, and create an expanded set by embedding subgraphs, randomly selected according to probability of occurrence, from the decoy database into these RNA graphs until each RNA graph contained 30 vertices. 
+As a control, we also created a decoy set of 45 graphs with 30 vertices, by random embedding of subgraphs from the decoy database only, i.e., graphs with no information from real biological structures except the frequency of occurrence of subgraphs in the known structures. 
+Both the expanded and the decoy graph sets are completely free of size effects since they all have exactly the same number of stems. 
+
 
 # incomplete_graphs
-To test the effects of graph incompleteness on the extended-fingerprint Jaccard Similarity function, incomplete RNA graphs were generated by randomly removing a percentage (10%, 30%, 50%, 60%, and 70%, respectively) of the vertices (stems) in the curated structures. 
+To test the effects of graph incompleteness on the extended-fingerprint Jaccard Similarity function, incomplete RNA graphs were generated by randomly removing a percentage (10%, 30%, 50%, and 70%, respectively) of the vertices (stems) in the curated structures. 
