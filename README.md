@@ -9,35 +9,26 @@ tar -xvzf curated_graphs.tar.gz
 ```
 
 # generate RNA fingerprint
+```
 perl fingerprint_shred.pl -i ./curated_graphs/xios_graph/ -w ./curated_graphs/xios_graph/
-
 perl fingerprint_shred.pl -i ./expanded_graphs/xios_graph/ -w ./expanded_graphs/xios_graph/
-
 perl fingerprint_shred.pl -i ./incomplete_graphs/remove_00_percent_stems/xios_graph/ -w ./incomplete_graphs/remove_00_percent_stems/xios_graph/
-
 perl fingerprint_shred.pl -i ./incomplete_graphs/remove_10_percent_stems/xios_graph/ -w ./incomplete_graphs/remove_10_percent_stems/xios_graph/
-
 perl fingerprint_shred.pl -i ./incomplete_graphs/remove_30_percent_stems/xios_graph/ -w ./incomplete_graphs/remove_30_percent_stems/xios_graph/
-
 perl fingerprint_shred.pl -i ./incomplete_graphs/remove_50_percent_stems/xios_graph/ -w ./incomplete_graphs/remove_50_percent_stems/xios_graph/
-
 perl fingerprint_shred.pl -i ./incomplete_graphs/remove_70_percent_stems/xios_graph/ -w ./incomplete_graphs/remove_70_percent_stems/xios_graph/
+```
 
 # calculate RNA fingerprint similarity 
+```
 perl fingerprint_distance.pl -d ./curated_graphs/fingerprint/
-
 perl fingerprint_distance.pl -d ./expanded_graphs/fingerprint/
-
 perl fingerprint_distance.pl -d ./incomplete_graphs/remove_00_percent_stems/fingerprint/
-
 perl fingerprint_distance.pl -d ./incomplete_graphs/remove_10_percent_stems/fingerprint/
-
 perl fingerprint_distance.pl -d ./incomplete_graphs/remove_30_percent_stems/fingerprint/
-
 perl fingerprint_distance.pl -d ./incomplete_graphs/remove_50_percent_stems/fingerprint/
-
 perl fingerprint_distance.pl -d ./incomplete_graphs/remove_70_percent_stems/fingerprint/
-
+```
 
 # curated graphs
 A set of curated RNA structures have been collected from the literature and a variety of biological databases and is extended in this work. This set of known structures has been carefully selected to contain pseudoknots, to cover a broad range of lengths, and to have been the subject of extensive expert curation by the biological community. This curated set includes 206 structures of transfer RNA, Ribonuclease P RNA, transfer-messenger RNA, group I and group II self-splicing introns, and 5S, 16S and 23S ribosomal RNA. The structures in this curated set have been reviewed to ensure they reflect expert opinion on the correct structure, and to ensure that the reported structures are as accurate as possible given existing experimental data such as X-ray crystallography and covariance analysis. The curated structures have been screened to ensure that all structures are full-length, and no pair of structures has greater than 50% sequence identity. Multiple families of the curated structures contain pseudoknots. 
