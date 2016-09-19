@@ -81,9 +81,12 @@ if ( $$option{i} ) { $inputdir = $$option{i} }  # input directory for xios files
 if ( $$option{j} ) { $njobs    = $$option{j} }  # number of concurrent jobs
 if ( $$option{w} ) { $workdir  = $$option{w} }  # working directory
 
-
 $exedir 	= abs_path( $exedir ).'/';
 $inputdir   	= abs_path( $inputdir ).'/';
+unless (-e $workdir) {
+    print STDERR "$workdir doesn't exist, creating...";
+    system("mkdir -p $workdir");
+}
 $workdir 	= abs_path( $workdir ).'/';
 
 # fingerprint_random.pl parameters
@@ -159,6 +162,7 @@ $manager->run_on_wait(
 print "$program $version\n";
 print "    Host: $hostname\n";
 print "    Executable directory: $exedir\n";
+print "    Input directory: $inputdir\n";
 print "    Working directory: $workdir\n";
 print "    Concurrent jobs: $njobs\n";
 print "    Start time: ".localtime(time)."\n";
