@@ -21,13 +21,13 @@ perl fingerprint_shred.pl -i ./inputs/incomplete_graphs/remove_70_percent_stems/
 
 # calculate RNA fingerprint similarity 
 ```
-perl fingerprint_distance.pl -d ./inputs/curated_graphs/fingerprint/
-perl fingerprint_distance.pl -d ./inputs/expanded_graphs/fingerprint/
-perl fingerprint_distance.pl -d ./inputs/incomplete_graphs/remove_00_percent_stems/fingerprint/
-perl fingerprint_distance.pl -d ./inputs/incomplete_graphs/remove_10_percent_stems/fingerprint/
-perl fingerprint_distance.pl -d ./inputs/incomplete_graphs/remove_30_percent_stems/fingerprint/
-perl fingerprint_distance.pl -d ./inputs/incomplete_graphs/remove_50_percent_stems/fingerprint/
-perl fingerprint_distance.pl -d ./inputs/incomplete_graphs/remove_70_percent_stems/fingerprint/
+perl fingerprint_distance.pl -d ./inputs/curated_graphs/fingerprint/ -w ./outputs/curated_graphs/clustering/
+perl fingerprint_distance.pl -d ./inputs/expanded_graphs/fingerprint/ -w ./outputs/expanded_graphs/clustering/
+perl fingerprint_distance.pl -d ./inputs/incomplete_graphs/remove_00_percent_stems/fingerprint/ -w ./outputs/incomplete_graphs/remove_00_percent_stems/clustering/
+perl fingerprint_distance.pl -d ./inputs/incomplete_graphs/remove_10_percent_stems/fingerprint/ -w ./outputs/incomplete_graphs/remove_10_percent_stems/clustering/
+perl fingerprint_distance.pl -d ./inputs/incomplete_graphs/remove_30_percent_stems/fingerprint/ -w ./outputs/incomplete_graphs/remove_30_percent_stems/clustering/
+perl fingerprint_distance.pl -d ./inputs/incomplete_graphs/remove_50_percent_stems/fingerprint/ -w ./outputs/incomplete_graphs/remove_50_percent_stems/clustering/
+perl fingerprint_distance.pl -d ./inputs/incomplete_graphs/remove_70_percent_stems/fingerprint/ -w ./outputs/incomplete_graphs/remove_70_percent_stems/clustering/
 ```
 
 # curated graphs
