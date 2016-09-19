@@ -201,50 +201,49 @@ foreach my $xfp (@xfp) {
         my $id    = $$motif{id};
 
         my $count = $$motif{count};
-	my $prob = $count/$iteration;
+	#my $prob = $count/$iteration;
 
-    	unless ( $motif_prob_index{$id} ) {
-	    $motif_prob_index{$id} = {
-		id			=> $id,
-		indicator		=> 1,
-		prob			=> $prob,
-		prob_aver_all		=> undef,
-		sp_frac_all		=> undef,
-		tf			=> undef,
-		idf			=> undef, 
-		tfidf 			=> undef,
-	    };
-	} 
-
-
-
-    	unless ( $xfp2prob{$fam}{$id} ) {
-	    $xfp2prob{$fam}{$id} = {
-		id			=> $id,
-		prob			=> undef,
-		prob_aver	 	=> undef,
-		support 		=> 0,
-		support_frac		=> undef,
-		support_ratio   	=> undef,
-	    };
-	} 
-	push @{$xfp2prob{$fam}{$id}{prob}}, $prob;
-	$xfp2prob{$fam}{$id}{support}++;
+    	#unless ( $motif_prob_index{$id} ) {
+	    #$motif_prob_index{$id} = {
+		#id			=> $id,
+		#indicator		=> 1,
+		#prob			=> $prob,
+		#prob_aver_all		=> undef,
+		#sp_frac_all		=> undef,
+		#tf			=> undef,
+		#idf			=> undef, 
+		#tfidf 			=> undef,
+	    #};
+	#} 
 
 
-    	unless ( $xfp2prob{all}{$id} ) {
-	    $xfp2prob{all}{$id} = {
-		id			=> $id,
-		prob			=> undef,
-		prob_aver 		=> undef,
-		support		 	=> 0,
-		support_frac		=> undef,
-		support_ratio		=> undef,
-	    };
-	} 
-	push @{$xfp2prob{all}{$id}{prob}}, $prob;
-	$xfp2prob{all}{$id}{support}++;
-	$sp{$id}++;
+    	#unless ( $xfp2prob{$fam}{$id} ) {
+	    #$xfp2prob{$fam}{$id} = {
+		#id			=> $id,
+		#prob			=> undef,
+		#prob_aver	 	=> undef,
+		#support 		=> 0,
+		#support_frac		=> undef,
+		#support_ratio   	=> undef,
+	    #};
+	#} 
+	#push @{$xfp2prob{$fam}{$id}{prob}}, $prob;
+	#$xfp2prob{$fam}{$id}{support}++;
+
+
+    #	unless ( $xfp2prob{all}{$id} ) {
+	    #$xfp2prob{all}{$id} = {
+		#id			=> $id,
+		#prob			=> undef,
+		#prob_aver 		=> undef,
+		#support		 	=> 0,
+		#support_frac		=> undef,
+		#support_ratio		=> undef,
+	    #};
+	#} 
+	#push @{$xfp2prob{all}{$id}{prob}}, $prob;
+	#$xfp2prob{all}{$id}{support}++;
+	#$sp{$id}++;
 
 
 	my ( $msize ) = $id =~ /(.*)\_/;
@@ -271,54 +270,53 @@ foreach my $xfp (@xfp) {
     $xfp2edge{$name} = $query_edge;
     $xfp2motif{$name} = \%motif_index;
     $xfp2extended{$name} = \%extended_index;
-    $prob_index{$name} = \%motif_prob_index;
-    $xfpfam{all}++;
+    #$prob_index{$name} = \%motif_prob_index;
+    #$xfpfam{all}++;
     $xfpfam{$fam}++;
 }
 print STDERR "Graph Stats Calculation Done!\n";
-my $graph_stats = $output_dir."graph_stats.txt";
-open ( G, ">$graph_stats" ) or die "can not open $graph_stats!\n";
-print G $graph_stats_string;
-close G;
+#my $graph_stats = $output_dir."graph_stats.txt";
+#open ( G, ">$graph_stats" ) or die "can not open $graph_stats!\n";
+#print G $graph_stats_string;
+#close G;
 
 
-foreach my $fam ( sort keys %xfp2prob ) {
+#foreach my $fam ( sort keys %xfp2prob ) {
 
-    my $prob_stats_string = qq{id\tprob_aver\tprob_all\tsupport_frac\tsupport_all\tsupport_ratio\n};
+#    my $prob_stats_string = qq{id\tprob_aver\tprob_all\tsupport_frac\tsupport_all\tsupport_ratio\n};
 
-    my $pf = $xfp2prob{$fam};
-    my $nfam = $xfpfam{$fam};
-    my $nall = $xfpfam{all};
+#    my $pf = $xfp2prob{$fam};
+#    my $nfam = $xfpfam{$fam};
+    #my $nall = $xfpfam{all};
 
-    foreach my $id ( keys %$pf ) {
-	my $support_frac = $$pf{$id}{support} / $nfam; 
-	my $support_all = $xfp2prob{all}{$id}{support}/$nall;
-	my $support_ratio = $support_frac/$support_all;
-	my $prob_all = sum( @{$xfp2prob{all}{$id}{prob}} )/$nall; 
-	my $prob_aver = sum( @{$$pf{$id}{prob}} )/$nfam; 
-	$$pf{$id}{support_frac} = $support_frac;
-	$$pf{$id}{support_ratio} = $support_ratio;
-	$$pf{all}{$id}{support_ratio} = $support_ratio;
-	$$pf{$id}{prob_aver} = $prob_aver; 
-	$xfp2prob{all}{$id}{prob_aver} = $prob_all; 
-	$prob_stats_string .= qq{$id\t$prob_aver\t$prob_all\t$support_frac\t$support_all\t$support_ratio\n};
-    }
+#    foreach my $id ( keys %$pf ) {
+#	my $support_frac = $$pf{$id}{support} / $nfam; 
+	#my $support_all = $xfp2prob{all}{$id}{support}/$nall;
+	#my $support_ratio = $support_frac/$support_all;
+	#my $prob_all = sum( @{$xfp2prob{all}{$id}{prob}} )/$nall; 
+#	my $prob_aver = sum( @{$$pf{$id}{prob}} )/$nfam; 
+#	$$pf{$id}{support_frac} = $support_frac;
+#	$$pf{$id}{support_ratio} = $support_ratio;
+	#$$pf{all}{$id}{support_ratio} = $support_ratio;
+#	$$pf{$id}{prob_aver} = $prob_aver; 
+	#$xfp2prob{all}{$id}{prob_aver} = $prob_all; 
+	#$prob_stats_string .= qq{$id\t$prob_aver\t$prob_all\t$support_frac\t$support_all\t$support_ratio\n};
+#    }
 
     #my $prob_stats = $output_dir.$fam."_motif_prob.txt";
     #open ( my $ps, ">$prob_stats" ) or die "can not open $prob_stats!\n";
     #print $ps $prob_stats_string;
     #close $ps;
-}
+#}
 
 
 
+#foreach my $name ( sort keys %prob_index  ) { 
 
-foreach my $name ( sort keys %prob_index  ) { 
-
-    my %motif_prob_index = %{$prob_index{$name}};
-    my %tfidf = ();
-    my %idf = ();
-    my %extended_idf = ();
+#    my %motif_prob_index = %{$prob_index{$name}};
+#    my %tfidf = ();
+#    my %idf = ();
+#    my %extended_idf = ();
     #my @sps = sort { $a <=> $b } values %sp;
     #my @probs = sort { $a<=>$b } values %probs;
     #my $prob_max = max( values %probs ); 
@@ -329,21 +327,21 @@ foreach my $name ( sort keys %prob_index  ) {
     #my $prob_lo = $probs[0];
     #my $prob_up = $probs[-int(@probs*0.25)];
 
-    foreach my $id ( sort keys %motif_prob_index ) {
+#    foreach my $id ( sort keys %motif_prob_index ) {
 
-	$motif_prob_index{$id}{sp_frac_all} = $xfp2prob{all}{$id}{support_frac};
-	$motif_prob_index{$id}{prob_aver_all} = $xfp2prob{all}{$id}{prob_aver};
-	$motif_prob_index{$id}{extended_sp_frac_all} = $xfp2prob{all}{$id}{extended_sp_frac};
+#	$motif_prob_index{$id}{sp_frac_all} = $xfp2prob{all}{$id}{support_frac};
+#	$motif_prob_index{$id}{prob_aver_all} = $xfp2prob{all}{$id}{prob_aver};
+#	$motif_prob_index{$id}{extended_sp_frac_all} = $xfp2prob{all}{$id}{extended_sp_frac};
 
 
 	#my $tf = log( $motif_prob_index{$id}{prob} )/log(10);
 	#my $idf = log( 1 / $motif_prob_index{$id}{sp_frac_all} ) / log(10); 
-	my $tf = $motif_prob_index{$id}{prob}; 
-	my $idf = 1- $motif_prob_index{$id}{sp_frac_all}; 
-	my $tfidf = $tf * $idf;
+#	my $tf = $motif_prob_index{$id}{prob}; 
+#	my $idf = 1- $motif_prob_index{$id}{sp_frac_all}; 
+#	my $tfidf = $tf * $idf;
 	#print STDERR "$name\t$id\t$tf\t$idf\t$tfidf\t$extended_idf\n";
-	$idf{$id} = $idf;
-	$tfidf{$id} = $tfidf;
+#	$idf{$id} = $idf;
+#	$tfidf{$id} = $tfidf;
 	#print STDERR "$probs{$id}\t$prob_lo\t$prob_up\n";
 	#my $tf = 1;
 	#my $idf = 1;
@@ -351,21 +349,20 @@ foreach my $name ( sort keys %prob_index  ) {
 	#$idf = 0 if ( $probs{$id} > $prob_lo && $probs{$id} < $prob_up );
 	#$idf = 0 if ( $sp{$id} < $sp_lo || $sp{$id} < $sp_up );
 
-    }
+#    }
 
-    my $total_support = scalar @xfp; 
-    foreach my $p ( sort keys %{$xfp2extended{$name}} ) {
-	my $extended_idf = 1 - $extended_sp{$p}/$total_support; 
-	$extended_idf{$p} = $extended_idf;
-    }
+#    my $total_support = scalar @xfp; 
+#    foreach my $p ( sort keys %{$xfp2extended{$name}} ) {
+#	my $extended_idf = 1 - $extended_sp{$p}/$total_support; 
+#	$extended_idf{$p} = $extended_idf;
+#    }
 
 
-    $xfp2idfextended{$name} = \%extended_idf;
-    $xfp2tfidf{$name} = \%tfidf;
-    $xfp2idf{$name} = \%idf;
+#    $xfp2idfextended{$name} = \%extended_idf;
+#    $xfp2tfidf{$name} = \%tfidf;
+#    $xfp2idf{$name} = \%idf;
 
-}
-
+#}
 
 
 foreach my $mfp (@mfp) {
@@ -533,14 +530,14 @@ sub Similarity2ROC {
 
 
 
-	my $mega = $output_dir.$similarity_string.".meg";
-	if ( defined $distance ) {
-	    DistanceToMega( $distance,  $mega );
-	} else {
-	    SimilarityToMega( $similarity, $mega );
-	}
-	my $mtx = $output_dir.$similarity_string.".mtx";
-	SimilarityToMatrix( $similarity, $mtx );
+	#my $mega = $output_dir.$similarity_string.".meg";
+	#if ( defined $distance ) {
+	#    DistanceToMega( $distance,  $mega );
+	#} else {
+	#    SimilarityToMega( $similarity, $mega );
+	#}
+	#my $mtx = $output_dir.$similarity_string.".mtx";
+	#SimilarityToMatrix( $similarity, $mtx );
 
         open( OUT, ">>$report" ) || die "can not open $report!\n";
         print OUT "Similarity function: $similarity_string\n";
@@ -556,10 +553,10 @@ sub Similarity2ROC {
         my ( $im_total, $coordinates_total )  = ROC( $plot_total, $report, $fam );
         ROCplot( $roc_total, $im_total );
 	
-	my $coordinates_total_file = $output_dir.$similarity_string."_roc_total_coordinates.txt";
-	open ( my $out, ">$coordinates_total_file" ) || die "can not open $coordinates_total_file!\n";
-	print $out $coordinates_total;
-	close $out;
+	#my $coordinates_total_file = $output_dir.$similarity_string."_roc_total_coordinates.txt";
+	#open ( my $out, ">$coordinates_total_file" ) || die "can not open $coordinates_total_file!\n";
+	#print $out $coordinates_total;
+	#close $out;
 
         for my $fam ( keys %xfpfam ) {
             my $plot = similarity4ROCbyFam( $fam, \%similarity );
@@ -568,18 +565,18 @@ sub Similarity2ROC {
             my ( $im, $coordinates) = ROC( $plot, $report, $fam );
             ROCplot( $roc, $im );
 
-	    my $coordinates_file = $output_dir.$similarity_string."_roc_".$fam."_coordinates.txt";
-	    open ( my $out, ">$coordinates_file" ) || die "can not open $coordinates_file!\n";
-	    print $out $coordinates;
-	    close $out;
+	    #my $coordinates_file = $output_dir.$similarity_string."_roc_".$fam."_coordinates.txt";
+	    #open ( my $out, ">$coordinates_file" ) || die "can not open $coordinates_file!\n";
+	    #print $out $coordinates;
+	    #close $out;
         }
 	
 	my $similarity_sorted = sortSimilarity( \%similarity, \%xfp2motif, \%xfp2extended );
         open( OUT, ">>$report" ) || die "can not open $report!\n";
-	print OUT "\nrnaX(motif_n/extended_motif_n)\trnaY(motif_n/extended_motif_n)\t(common_motif_n/extended_common_motif_n)\tSimilarity\n";
-	for my $pair ( sort { $similarity_sorted->{$b} <=> $similarity_sorted->{$a} } keys %$similarity_sorted ) {
-	    print OUT "$pair\t$similarity_sorted->{$pair}\n";
-	} 
+	#print OUT "\nrnaX(motif_n/extended_motif_n)\trnaY(motif_n/extended_motif_n)\t(common_motif_n/extended_common_motif_n)\tSimilarity\n";
+	#for my $pair ( sort { $similarity_sorted->{$b} <=> $similarity_sorted->{$a} } keys %$similarity_sorted ) {
+	#    print OUT "$pair\t$similarity_sorted->{$pair}\n";
+	#} 
         print OUT "End of similarity function: $similarity_string\n\n";
         close OUT;
     }
@@ -2124,21 +2121,21 @@ sub checkIdentical4ROC {
         }
         elsif ( $true_size && $false_size ) {
 
-            for my $_ (@identical) {
+            for my $ident (@identical) {
                 my $false_move = $false_percent * $false_size / $size;
                 my $true_move  = $true_percent * $true_size / $size;
-                push @{ $plot{$_} }, ( $false_move, $true_move );
+                push @{ $plot{$ident} }, ( $false_move, $true_move );
             }
 
         }
         else {
 
-            for my $_ (@identical) {
-                if ( $total_idxed[$_]->[1] eq "false" ) {
-                    push @{ $plot{$_} }, ( $false_percent, 0 );
+            for my $ident (@identical) {
+                if ( $total_idxed[$ident]->[1] eq "false" ) {
+                    push @{ $plot{$ident} }, ( $false_percent, 0 );
                 }
-                elsif ( $total_idxed[$_]->[1] eq "true" ) {
-                    push @{ $plot{$_} }, ( 0, $true_percent );
+                elsif ( $total_idxed[$ident]->[1] eq "true" ) {
+                    push @{ $plot{$ident} }, ( 0, $true_percent );
                 }
             }
         }
