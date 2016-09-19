@@ -9,8 +9,6 @@
 #   fingerprint_distance.pl *.xfp
 #------------------------------------------------------------------------------
 use strict;
-#use lib '/home/huang147/RNA/src/perl_src';
-#use lib '/home/huang147/perl_src_huang_120827/';
 use lib './';
 use Data::Dumper;
 use Storable;
@@ -168,21 +166,7 @@ foreach my $xfp (@xfp) {
     $ixfp++;
     my ($name) = $xfp =~ /(.*)\.xios/;
     my ($fam) = split /[\.\_]+/, $xfp;
-    #my ( $fam, $subfam ); 
-    #my ($fam_subfam, $species) = split /\./, $xfp;
-    #if ( $fam_subfam =~ /\_/ ) {
-#	my @fam_subfam = split /\_/, $fam_subfam;
-#	$fam = $fam_subfam[0];
-#	$subfam = join "_", @fam_subfam[1...$#fam_subfam];
-#    } else {
-#	$fam = $fam_subfam; 
-#    }
-#    my $name; 
-#    if ( $subfam ) {
-#        $name = $fam.".".$subfam."_".$species; 
-#    } else {
-#	$name = $fam.".".$species; 
-#    }
+
     # set up fingerprint
     my %motif_prob_index = ();
     my %motif_index = ();
@@ -199,63 +183,18 @@ foreach my $xfp (@xfp) {
     foreach my $motif ( @{$motiflist} ) {
 
         my $id    = $$motif{id};
-
         my $count = $$motif{count};
-	#my $prob = $count/$iteration;
 
-    	#unless ( $motif_prob_index{$id} ) {
-	    #$motif_prob_index{$id} = {
-		#id			=> $id,
-		#indicator		=> 1,
-		#prob			=> $prob,
-		#prob_aver_all		=> undef,
-		#sp_frac_all		=> undef,
-		#tf			=> undef,
-		#idf			=> undef, 
-		#tfidf 			=> undef,
-	    #};
-	#} 
+        my ( $msize ) = $id =~ /(.*)\_/;
+        $motif_index{$id} = 1;
+        $extended_index{$id} = 1;
+        $dp{$id}{$id} = 1;
 
-
-    	#unless ( $xfp2prob{$fam}{$id} ) {
-	    #$xfp2prob{$fam}{$id} = {
-		#id			=> $id,
-		#prob			=> undef,
-		#prob_aver	 	=> undef,
-		#support 		=> 0,
-		#support_frac		=> undef,
-		#support_ratio   	=> undef,
-	    #};
-	#} 
-	#push @{$xfp2prob{$fam}{$id}{prob}}, $prob;
-	#$xfp2prob{$fam}{$id}{support}++;
-
-
-    #	unless ( $xfp2prob{all}{$id} ) {
-	    #$xfp2prob{all}{$id} = {
-		#id			=> $id,
-		#prob			=> undef,
-		#prob_aver 		=> undef,
-		#support		 	=> 0,
-		#support_frac		=> undef,
-		#support_ratio		=> undef,
-	    #};
-	#} 
-	#push @{$xfp2prob{all}{$id}{prob}}, $prob;
-	#$xfp2prob{all}{$id}{support}++;
-	#$sp{$id}++;
-
-
-	my ( $msize ) = $id =~ /(.*)\_/;
-	$motif_index{$id} = 1;
-	$extended_index{$id} = 1;
-	$dp{$id}{$id} = 1;
-
-	foreach my $p ( @{$$parent{$id}} ) {
-	    my ( $psize ) = $p =~ /(.*)\_/;
-	    $extended_index{$p} = 1;
-	    $dp{$id}{$id} = 1;
-    	}
+        foreach my $p ( @{$$parent{$id}} ) {
+            my ( $psize ) = $p =~ /(.*)\_/;
+            $extended_index{$p} = 1;
+            $dp{$id}{$id} = 1;
+        }
     }
 
     my $menum = scalar keys %extended_index;
@@ -270,99 +209,9 @@ foreach my $xfp (@xfp) {
     $xfp2edge{$name} = $query_edge;
     $xfp2motif{$name} = \%motif_index;
     $xfp2extended{$name} = \%extended_index;
-    #$prob_index{$name} = \%motif_prob_index;
-    #$xfpfam{all}++;
     $xfpfam{$fam}++;
 }
 print STDERR "Graph Stats Calculation Done!\n";
-#my $graph_stats = $output_dir."graph_stats.txt";
-#open ( G, ">$graph_stats" ) or die "can not open $graph_stats!\n";
-#print G $graph_stats_string;
-#close G;
-
-
-#foreach my $fam ( sort keys %xfp2prob ) {
-
-#    my $prob_stats_string = qq{id\tprob_aver\tprob_all\tsupport_frac\tsupport_all\tsupport_ratio\n};
-
-#    my $pf = $xfp2prob{$fam};
-#    my $nfam = $xfpfam{$fam};
-    #my $nall = $xfpfam{all};
-
-#    foreach my $id ( keys %$pf ) {
-#	my $support_frac = $$pf{$id}{support} / $nfam; 
-	#my $support_all = $xfp2prob{all}{$id}{support}/$nall;
-	#my $support_ratio = $support_frac/$support_all;
-	#my $prob_all = sum( @{$xfp2prob{all}{$id}{prob}} )/$nall; 
-#	my $prob_aver = sum( @{$$pf{$id}{prob}} )/$nfam; 
-#	$$pf{$id}{support_frac} = $support_frac;
-#	$$pf{$id}{support_ratio} = $support_ratio;
-	#$$pf{all}{$id}{support_ratio} = $support_ratio;
-#	$$pf{$id}{prob_aver} = $prob_aver; 
-	#$xfp2prob{all}{$id}{prob_aver} = $prob_all; 
-	#$prob_stats_string .= qq{$id\t$prob_aver\t$prob_all\t$support_frac\t$support_all\t$support_ratio\n};
-#    }
-
-    #my $prob_stats = $output_dir.$fam."_motif_prob.txt";
-    #open ( my $ps, ">$prob_stats" ) or die "can not open $prob_stats!\n";
-    #print $ps $prob_stats_string;
-    #close $ps;
-#}
-
-
-
-#foreach my $name ( sort keys %prob_index  ) { 
-
-#    my %motif_prob_index = %{$prob_index{$name}};
-#    my %tfidf = ();
-#    my %idf = ();
-#    my %extended_idf = ();
-    #my @sps = sort { $a <=> $b } values %sp;
-    #my @probs = sort { $a<=>$b } values %probs;
-    #my $prob_max = max( values %probs ); 
-    #my $sp_lo = $sps[int(@sps*0.25)];
-    #my $sp_up = $sps[-int(@sps*0.25)];
-    #my $prob_lo = $probs[int(@probs*0.25)];
-    #my $prob_up = $probs[-1];
-    #my $prob_lo = $probs[0];
-    #my $prob_up = $probs[-int(@probs*0.25)];
-
-#    foreach my $id ( sort keys %motif_prob_index ) {
-
-#	$motif_prob_index{$id}{sp_frac_all} = $xfp2prob{all}{$id}{support_frac};
-#	$motif_prob_index{$id}{prob_aver_all} = $xfp2prob{all}{$id}{prob_aver};
-#	$motif_prob_index{$id}{extended_sp_frac_all} = $xfp2prob{all}{$id}{extended_sp_frac};
-
-
-	#my $tf = log( $motif_prob_index{$id}{prob} )/log(10);
-	#my $idf = log( 1 / $motif_prob_index{$id}{sp_frac_all} ) / log(10); 
-#	my $tf = $motif_prob_index{$id}{prob}; 
-#	my $idf = 1- $motif_prob_index{$id}{sp_frac_all}; 
-#	my $tfidf = $tf * $idf;
-	#print STDERR "$name\t$id\t$tf\t$idf\t$tfidf\t$extended_idf\n";
-#	$idf{$id} = $idf;
-#	$tfidf{$id} = $tfidf;
-	#print STDERR "$probs{$id}\t$prob_lo\t$prob_up\n";
-	#my $tf = 1;
-	#my $idf = 1;
-	#$idf = 0 if ( $probs{$id} < $prob_lo || $probs{$id} > $prob_up );
-	#$idf = 0 if ( $probs{$id} > $prob_lo && $probs{$id} < $prob_up );
-	#$idf = 0 if ( $sp{$id} < $sp_lo || $sp{$id} < $sp_up );
-
-#    }
-
-#    my $total_support = scalar @xfp; 
-#    foreach my $p ( sort keys %{$xfp2extended{$name}} ) {
-#	my $extended_idf = 1 - $extended_sp{$p}/$total_support; 
-#	$extended_idf{$p} = $extended_idf;
-#    }
-
-
-#    $xfp2idfextended{$name} = \%extended_idf;
-#    $xfp2tfidf{$name} = \%tfidf;
-#    $xfp2idf{$name} = \%idf;
-
-#}
 
 
 foreach my $mfp (@mfp) {
@@ -461,7 +310,6 @@ sub Similarity2ROC {
 
             $similarity_string = "ParentTanimotoSimilarity";
             ( $similarity ) = ParentTanimotoSimilarity($xfp2motif);
-	    #( $similarity ) = TanimotoSimilarity( $xfp2motif );
         }
 
         elsif ( $simi_func eq "r" ) {
@@ -492,7 +340,6 @@ sub Similarity2ROC {
 
             $similarity_string = "ExtendedTanimotoSimilarity";
             ( $similarity, $distance ) = ExtendedTanimotoSimilarity($xfp2motif);
-            #( $similarity, $distance ) = TanimotoSimilarity(\%xfp2extended);
         }
 
         elsif ( $simi_func eq "m" ) {
@@ -650,42 +497,6 @@ sub DistanceToMega {
     my @rna = sort keys %distance;
     my $total_n = scalar @rna;
 
-#    for my $x ( 0 ... $#rna ) {
-#        for my $y ( $x ... $#rna ) {
-
-#	    my $rnax = $rna[$x];
-#	    my $rnay = $rna[$y];
-
-#	    my $s;
-#	    if ( defined $similarity{$rnax}{$rnay} ) {
-#	        $s = $similarity{$rnax}{$rnay}; 
-# 	    } elsif ( defined $similarity{$rnay}{$rnax} ) {
-#		$s = $similarity{$rnay}{$rnax}; 
-#	    }
-#	    $s_max = $s  if ( $s > $s_max );
-#	}
-#    }
-
-#    for my $x ( 0 ... $#rna ) {
-#        for my $y ( $x ... $#rna ) {
-
-#	    my $rnax = $rna[$x];
-#	    my $rnay = $rna[$y];
-
-	    #my $s = $similarity{$rnax}{$rnay};
-#	    my $d = $similarity{$rnax}{$rnay};
-#	    if ( $rnax eq $rnay ) {
-#		$d = 0;
-#	    } else {
-#	        #$d = $s_max - $s;
-#		$d = -log($s + 0.000000000001)/log(2);
-#		$d = sprintf( "%.15f", $d );
-#	    }
-#	    $distance{$rnax}{$rnay} = $d;
-#	    $distance{$rnay}{$rnax} = $d;
-#	}	    
-#    }
-
     my $out_string = qq{
 #mega
 !Format DataType=Distance DataFormat=LowerLeft NTaxa=$total_n;
@@ -760,7 +571,6 @@ sub SimilarityToMega {
 	    if ( $rnax eq $rnay ) {
 		$d = 0;
 	    } else {
-	        #$d = $s_max - $s;
 		$d = -log($s + 0.000000000001)/log(2);
 		$d = sprintf( "%.15f", $d );
 	    }
@@ -818,7 +628,6 @@ sub SimilarityToMatrix {
     my $out_string;
 
     for my $rna ( @rna ) {
-	#my ( $fam ) = $rna =~ /(.*)\_/;
 	my ( $fam ) = split /[\.\_]+/, $rna; 
 	$out_string .= "$fam\t";
     }
@@ -873,7 +682,6 @@ sub VertexNumberSimilarity {
 	    my $vnx = $xfp2vertex{$rnax};
 	    my $vny = $xfp2vertex{$rnay};
 
-            #my $similarity = $vnx * $vny / ($vnx + $vny)**2;
             my $similarity = min( $vnx, $vny ) / max( $vnx, $vny );
             $similarity{$rnax}{$rnay} = $similarity;
             $similarity{$rnay}{$rnax} = $similarity;
@@ -909,7 +717,6 @@ sub EdgeNumberSimilarity {
 	    my $enx = $xfp2edge{$rnax};
 	    my $eny = $xfp2edge{$rnay};
 
-            #my $similarity = $enx * $eny / ($enx + $eny)**2;
 	    my $similarity = min( $enx, $eny ) / max( $enx, $eny );
             $similarity{$rnax}{$rnay} = $similarity;
             $similarity{$rnay}{$rnax} = $similarity;
@@ -947,7 +754,6 @@ sub MotifNumberSimilarity {
             my $nmx = scalar keys %{$xfp2motif{$rnax}};
             my $nmy = scalar keys %{$xfp2motif{$rnay}};
 
-            #my $similarity = $nmx * $nmy / ($nmx+$nmy)**2;
 	    my $similarity = min( $nmx, $nmy ) / max( $nmx, $nmy );
             $similarity{$rnax}{$rnay} = $similarity;
             $similarity{$rnay}{$rnax} = $similarity;
@@ -978,13 +784,11 @@ sub DiceSimilarity {
     for my $x ( 0 ... $#rna ) {
 	my $rnax = $rna[$x];
 	my $mx = $xfp2motif->{$rnax};
-	#my $nmx = scalar keys %$mx;
 
         for my $y ( $x ... $#rna ) {
 
 	    my $rnay = $rna[$y];
             my $my = $xfp2motif->{$rnay};
-	    #my $nmy = scalar keys %$my;
 
 	    my ( $nmx, $nmy, $nmxy ) = ( 0, 0, 0 );
             for my $m ( keys %$mx ) {
@@ -1125,8 +929,6 @@ sub RemoveAnyMotifs {
     @m = shuffle @m;
     my @rm = @m[ 0 ... int(($#m + 1)*($frac_rm))];
     if ( $#rm == 0 ) {@rm = ();}
-    #my @counts = sort { $a <=> $b } values %$mr;
-    #my $count_keep = $counts[int(($#counts +1)*( 1 - $frac_rm ))]; 
 
     for my $m ( @rm ) {
         delete $mr->{$m};           
@@ -1166,10 +968,6 @@ sub RemoveMidMotifs {
     }
 
     my $n_motif = scalar keys %$mr;
-    #print STDERR "bfr $m_motif aft $n_motif\n";
-    #if ( $n_motif == 0 ) {
-    #    print STDERR "lo $count_keep_lo hi $count_keep_hi  bfr $m_motif aft $n_motif\n";
-    #}
     return ( $mr, $n_motif );
 }
 # End of RemoveMidMotifs
@@ -1203,10 +1001,6 @@ sub RemoveRareAndFreqMotifs {
     }
 
     my $n_motif = scalar keys %$mr;
-    #print STDERR "bfr $m_motif aft $n_motif\n";
-    #if ( $n_motif == 0 ) {
-    #    print STDERR "lo $count_keep_lo hi $count_keep_hi  bfr $m_motif aft $n_motif\n";
-    #}
     return ( $mr, $n_motif );
 }
 # End of RemoveRareAndFreqMotifs
@@ -1285,10 +1079,6 @@ sub MBSimilarity {
             for my $m ( keys %$mx ) {
 		$nmx += ( $mx->{$m} )**2;
                 if ( defined $my->{$m} ) {
-		    #my $mmm = ( $mx->{$m} ); 
-		    #my $nnn = ( $my->{$m} );
-		    #my $qqq = $mmm * $nnn;
-		    #print STDERR "$mmm\t$nnn\t$qqq\n" unless ( $qqq );
 		    $nmxy+= ( $mx->{$m} )* ( $my->{$m} );
 		} else {
 		    $nmxo+= ( $mx->{$m} )**2;
@@ -1298,11 +1088,7 @@ sub MBSimilarity {
 		$nmy += ( $my->{$m} )**2;
 		$nmyo+= ( $my->{$m} )**2 unless ( defined $mx->{$m} );
 	    }
-	    #print STDERR "$nmx $nmy nmxy $nmxy \n" unless ($nmxy);
-	    #next unless ( $nmx && $nmy );
             my $similarity =
-		#$nmxy/( $nmxo + $nmyo + $nmxy + 0.000000001 );
-		#$nmxy /( $nmx + $nmy - $nmxy + 0.000000001 ); 
 		0.5 * ($nmxy / ($nmx+0.00000000001) + $nmxy / ($nmy+0.00000000001) );
             $similarity{$rnax}{$rnay} = $similarity;
             $similarity{$rnay}{$rnax} = $similarity;
@@ -1345,10 +1131,6 @@ sub TanimotoSimilarity {
             for my $m ( keys %$mx ) {
 		$nmx += ( $mx->{$m} )**2;
                 if ( defined $my->{$m} ) {
-		    #my $mmm = ( $mx->{$m} ); 
-		    #my $nnn = ( $my->{$m} );
-		    #my $qqq = $mmm * $nnn;
-		    #print STDERR "$mmm\t$nnn\t$qqq\n" unless ( $qqq );
 		    $nmxy+= ( $mx->{$m} )* ( $my->{$m} );
 		} else {
 		    $nmxo+= ( $mx->{$m} )**2;
@@ -1358,10 +1140,7 @@ sub TanimotoSimilarity {
 		$nmy += ( $my->{$m} )**2;
 		$nmyo+= ( $my->{$m} )**2 unless ( defined $mx->{$m} );
 	    }
-	    #print STDERR "$nmx $nmy nmxy $nmxy \n" unless ($nmxy);
-	    #next unless ( $nmx && $nmy );
             my $similarity =
-		#$nmxy/( $nmxo + $nmyo + $nmxy + 0.000000001 );
 		$nmxy /( $nmx + $nmy - $nmxy + 0.000000001 ); 
             $similarity{$rnax}{$rnay} = $similarity;
             $similarity{$rnay}{$rnax} = $similarity;
@@ -1394,7 +1173,6 @@ sub WeightedTanimotoSimilarity {
         chomp $line;
         my ( $motif, $weight ) = split " ", $line;
         $w{$motif} = $weight;
-        #print STDERR "$motif $weight\n";
     }
     close $in;
 
@@ -1405,41 +1183,20 @@ sub WeightedTanimotoSimilarity {
     for my $x ( 0 ... $#rna ) {
         my $rnax = $rna[$x];
         my $mx = $xfp2motif->{$rnax};
-#        print STDERR "mx:$mx\n";
-#        foreach my $id ( keys %$mx ) {
-#            print STDERR "$id $$mx{$id}\n";
-#        }
 
         for my $y ( $x ... $#rna ) {
 	        my $rnay = $rna[$y];
             my $my = $xfp2motif->{$rnay};
 
             my ( $x_and_y, $x_or_y ) = (0, 0);
-	    #my ( $nmx, $nmy, $nmxo, $nmyo, $nmxy ) = (0, 0, 0, 0, 0);
-        #    for my $m ( keys %$mx ) {
-		#$nmx += ( $mx->{$m} )**2;
-        #        if ( defined $my->{$m} ) {
-		#    $nmxy+= ( $mx->{$m} )* ( $my->{$m} );
-		#} else {
-		#    $nmxo+= ( $mx->{$m} )**2;
-		#}
-        #    }
-	    #for my $m ( keys %$my ) {
-		#$nmy += ( $my->{$m} )**2;
-		#$nmyo+= ( $my->{$m} )**2 unless ( defined $mx->{$m} );
-	    #}
             for my $m ( keys %$mx ) {
-#                print STDERR "$m\n";
-#                $x_or_y += 1;
                 $x_or_y += $w{$m};
                 if ( defined $my->{$m} ) {
-                #    $x_and_y += 1;
                     $x_and_y += $w{$m};
                 } 
             }
             for my $m ( keys %$my ) {
                 unless ( defined $mx->{$m} ) {
-                #    $x_or_y += 1;
                     $x_or_y += $w{$m};
                 }
             }
@@ -1668,7 +1425,6 @@ sub ExtendedTanimotoSimilarity {
 
             $similarity{$rnax}{$rnay} = $similarity;
             $similarity{$rnay}{$rnax} = $similarity;
-            #$max_similarity = $similarity if ( $max_similarity < $similarity );
 
 	 
 
@@ -1843,7 +1599,6 @@ sub BinarySimilarity {
             my $similarity = 0;
 
             for my $m ( keys %mx ) {
-            #    $similarity += $mx{$m} * $my{$m}  if ( defined $my{$m} );
                 $similarity ++ if ( defined $my{$m} );
             }
             $similarity{$rnax}{$rnay} = $similarity;
@@ -1964,15 +1719,11 @@ sub similarity4ROCAllFam {
             my $rnax = $rna[$x];
             my $rnay = $rna[$y];
 
-            #my ($famx) = $rnax =~ /^([a-zA-Z0-9]*)\./;
-            #my ($famy) = $rnay =~ /^([a-zA-Z0-9]*)\./;
 	    my ( $famx ) = split /[\_,\.]+/, $rnax; 
 	    my ( $famy ) = split /[\_,\.]+/, $rnay; 
 
             # TODO test on the undef similarity!! 
             my $similarity = $s{$rnax}{$rnay};
-	    #print STDERR "undef s[$rnax][$rnay] = $s{$rnax}{$rnay}\n" unless ( $s{$rnax}{$rnay} );
-	    #print STDERR "def s[$rnax][$rnay] = $s{$rnax}{$rnay}\n" if ( $s{$rnax}{$rnay} );
 
             if ( "$famx" eq "$famy" ) {
                 push @true, $similarity;
@@ -2013,8 +1764,6 @@ sub similarity4ROCbyFam {
             my $rnax = $rna[$x];
             my $rnay = $rna[$y];
 
-            #my ($famx) = $rnax =~ /^([a-zA-Z0-9]*)\./;
-            #my ($famy) = $rnay =~ /^([a-zA-Z0-9]*)\./;
 	    my ( $famx ) = split /[\.,\_]+/, $rnax; 
 	    my ( $famy ) = split /[\.,\_]+/, $rnay; 
 
@@ -2198,8 +1947,6 @@ sub ROC {
     # y-axis label
     $im->stringUp( gdGiantFont, $x_axis_origin - 50,
         500, "True Positive Rate", $black );
-
-    # TODO tick marks (entend 3 pixels on either side of the axis)
 
     my @x_ticks = ( 0, 0.20, 0.40, 0.60, 0.80, 1.00 );
     foreach my $tick (@x_ticks) {
