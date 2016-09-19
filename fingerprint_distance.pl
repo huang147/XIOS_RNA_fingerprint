@@ -11,7 +11,7 @@
 use strict;
 #use lib '/home/huang147/RNA/src/perl_src';
 #use lib '/home/huang147/perl_src_huang_120827/';
-use lib '/';
+use lib './';
 use Data::Dumper;
 use Storable;
 use Getopt::Std;
@@ -83,12 +83,12 @@ if ( defined $option{h} ) {
     exit 1;
 }
 
-my $output_dir = $cwd."/outputs/";
+my $output_dir = $cwd."/outputs/curated_graphs/clustering/";
 if ( defined $option{w} ) {
-    $output_dir = $option{w};
+    $output_dir = $option{w}."/";
 }
 unless (-e $output_dir) {
-    system("mkdir $output_dir");
+    system("mkdir -p $output_dir");
 }
 my $report = $output_dir."AUC.txt";
 
@@ -99,9 +99,9 @@ my $parent = $$pc{parent};
 my $child  = $$pc{child};
 my %dp;
 
-my $input_dir = $cwd."/curated_graphs/fingerprint/";
+my $input_dir = $cwd."inputs/curated_graphs/fingerprint/";
 if ( defined $option{d} ) {
-    $input_dir = $option{d};
+    $input_dir = $option{d}."/";
 }
 
 
