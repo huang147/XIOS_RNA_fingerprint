@@ -39,18 +39,12 @@ my $USAGE .= qq{$revision [-h] [-i|em] [-s|abcdehmnrtvx] <.fpout>
 
 my $cwd       = getcwd;
 my @xfp       = ();
-my @xios      = ();
 my @mfp       = ();
 my %xfp2motif = ();
 my %xfp2extended = ();
-my %xfp2dp = (); # direct parent: only one vertex less
 my %xfp2vertex = ();
 my %xfp2edge  = ();
-my %mfp2motif = ();
 my %xfpfam    = ();
-my %mfpfam    = ();
-my %extended_sp = ();
-my %sp = ();
 
 my %option;
 getopts( "d:hi:s:w:", \%option );
@@ -74,7 +68,6 @@ my $extendedDB = $cwd."/Motif_fingerprint/2_to_7_parent_child.storable";
 my $pc = retrieve( $extendedDB );
 my $parent = $$pc{parent};
 my $child  = $$pc{child};
-my %dp;
 
 my $input_dir = $cwd."inputs/curated_graphs/fingerprint/";
 if ( defined $option{d} ) {
@@ -95,28 +88,23 @@ if ( defined $option{s} ) {
 
 opendir( DH, $input_dir ) || die "can not open directory $input_dir!\n";
 while ( my $file = readdir DH ) {
-    if ( $file =~ /\.fpout$/ || $file =~ /\.xpt$/ ) {
+    if ( $file =~ /\.xpt$/ ) {
         push @xfp, $file;
-    }
-    elsif ( $file =~ /manual\.structure_out\.result$/ ) {
-        push @mfp, $file;
     }
 }
 close DH;
 
 
-my $graph_stats_string = qq{fam\tname\tvnum\tenum\tmonum\tmenum\n};
 print STDERR "Graph Stats Calculation...\n";
+my $ixfp = 0;
 my $nxfp = scalar @xfp;
-my $ixfp = 1;
 foreach my $xfp (@xfp) {
-    print STDERR "$xfp read in ($ixfp / $nxfp)\n";
     $ixfp++;
+    print STDERR "$xfp read in ($ixfp / $nxfp)\n";
     my ($name) = $xfp =~ /(.*)\.xios/;
     my ($fam) = split /[\.\_]+/, $xfp;
 
     # set up fingerprint
-    my %motif_prob_index = ();
     my %motif_index = ();
     my %extended_index = ();
     my $fingerprint = Fingerprint->new;
@@ -136,22 +124,14 @@ foreach my $xfp (@xfp) {
         my ( $msize ) = $id =~ /(.*)\_/;
         $motif_index{$id} = 1;
         $extended_index{$id} = 1;
-        $dp{$id}{$id} = 1;
 
         foreach my $p ( @{$$parent{$id}} ) {
             my ( $psize ) = $p =~ /(.*)\_/;
             $extended_index{$p} = 1;
-            $dp{$id}{$id} = 1;
         }
     }
 
     my $menum = scalar keys %extended_index;
-    $graph_stats_string .= qq{$fam\t$name\t$query_vertex\t$query_edge\t$monum\t$menum\n};
-
-    foreach my $p ( keys %extended_index ) {
-        $extended_sp{$p}++;
-    }
-
 
     $xfp2vertex{$name} = $query_vertex;
     $xfp2edge{$name} = $query_edge;
@@ -162,14 +142,6 @@ foreach my $xfp (@xfp) {
 print STDERR "Graph Stats Calculation Done!\n";
 
 
-foreach my $mfp (@mfp) {
-    my $motif_index = readmanout($mfp);
-    my ($fam, $species) = split /\./, $mfp;
-    my $name = $fam.'.'.$species;
-    $mfp2motif{$name} = $motif_index;
-    $mfpfam{$fam} = 1;
-}
-
 my @index = split "", $current_index;
 while (@index) {
 
@@ -178,16 +150,16 @@ while (@index) {
     if ( $index eq "m" ) {
 
         open( OUT, ">>$report" ) || die "can not open $report!\n";
-	print OUT "\n\nSimple Fingerprint\n";
-	print STDERR "\n\nSimple Fingerprint\n";
+        print OUT "\n\nSimple Fingerprint\n";
+        print STDERR "\n\nSimple Fingerprint\n";
         close OUT;
         Similarity2ROC( \%xfp2motif, \%xfp2vertex, \%xfp2edge, $current_similarity );
 
     } elsif ( $index eq "e" ) {
 
         open( OUT, ">>$report" ) || die "can not open $report!\n";
-	print OUT "\n\nExtended Fingerprint\n";
-	print STDERR "\n\nExtended Fingerprint\n";
+        print OUT "\n\nExtended Fingerprint\n";
+        print STDERR "\n\nExtended Fingerprint\n";
         close OUT;
         Similarity2ROC( \%xfp2extended, \%xfp2vertex, \%xfp2edge,  $current_similarity );
 
@@ -196,8 +168,14 @@ while (@index) {
 
 
 
-
-
+#---------------------------------------------------------------------------------
+# Similarity2ROC
+# 
+# Given the fingerprints of RNA graphs, convert them to ROC curves.
+#
+# Usage 
+# Similarity2ROC( \%xfp2extended, \%xfp2vertex, \%xfp2edge,  $current_similarity );
+#---------------------------------------------------------------------------------
 sub Similarity2ROC {
 
     my ( $xfp2motif, $xfp2vertex, $xfp2edge, $current_similarity ) = @_;
@@ -261,15 +239,6 @@ sub Similarity2ROC {
         }
 
 
-	#my $mega = $output_dir.$similarity_string.".meg";
-	#if ( defined $distance ) {
-	#    DistanceToMega( $distance,  $mega );
-	#} else {
-	#    SimilarityToMega( $similarity, $mega );
-	#}
-	#my $mtx = $output_dir.$similarity_string.".mtx";
-	#SimilarityToMatrix( $similarity, $mtx );
-
         open( OUT, ">>$report" ) || die "can not open $report!\n";
         print OUT "Similarity function: $similarity_string\n";
         print STDERR "Current similarity function is $similarity_string!\n";
@@ -284,36 +253,34 @@ sub Similarity2ROC {
         my ( $im_total, $coordinates_total )  = ROC( $plot_total, $report, $fam );
         ROCplot( $roc_total, $im_total );
 	
-	#my $coordinates_total_file = $output_dir.$similarity_string."_roc_total_coordinates.txt";
-	#open ( my $out, ">$coordinates_total_file" ) || die "can not open $coordinates_total_file!\n";
-	#print $out $coordinates_total;
-	#close $out;
-
         for my $fam ( keys %xfpfam ) {
             my $plot = similarity4ROCbyFam( $fam, \%similarity );
 
             my $roc = $output_dir."$similarity_string" . "_" . "$fam" . "_ROC.png";
             my ( $im, $coordinates) = ROC( $plot, $report, $fam );
             ROCplot( $roc, $im );
-
-	    #my $coordinates_file = $output_dir.$similarity_string."_roc_".$fam."_coordinates.txt";
-	    #open ( my $out, ">$coordinates_file" ) || die "can not open $coordinates_file!\n";
-	    #print $out $coordinates;
-	    #close $out;
         }
 	
 	my $similarity_sorted = sortSimilarity( \%similarity, \%xfp2motif, \%xfp2extended );
         open( OUT, ">>$report" ) || die "can not open $report!\n";
-	#print OUT "\nrnaX(motif_n/extended_motif_n)\trnaY(motif_n/extended_motif_n)\t(common_motif_n/extended_common_motif_n)\tSimilarity\n";
-	#for my $pair ( sort { $similarity_sorted->{$b} <=> $similarity_sorted->{$a} } keys %$similarity_sorted ) {
-	#    print OUT "$pair\t$similarity_sorted->{$pair}\n";
-	#} 
         print OUT "End of similarity function: $similarity_string\n\n";
         close OUT;
     }
 }
+# End of Similarity2ROC
 
 
+
+
+#--------------------------------------------------------------------------------
+# sortSimilarity
+#
+# Given the pairs of similarity of RNA graphs, sort them by value, which is used 
+#   in the calculation of ROC curves.
+#
+# Usage
+# my $similarity_sorted = sortSimilarity( \%similarity, \%xfp2motif, \%xfp2extended ); 
+#--------------------------------------------------------------------------------
 sub sortSimilarity {
     my ( $s, $xfp2motif, $xfp2extended ) = @_;
     my %s = %{$s};
@@ -352,28 +319,20 @@ sub sortSimilarity {
     }
     return (\%s_sorted);
 }
+# End of sortSimilarity
 
 
-sub readmanout {
-    my ($manout) = @_;
-    my %motif;
-
-    open( MAN, "<$manout" ) || die "can not open $manout!\n";
-    while ( my $line = <MAN> ) {
-        next unless ( $line =~ /\_stem_motif\_/ );
-        my @line1 = split " ", $line;
-        my @line2 = split ":", $line1[0];
-        my ($motif)       = $line2[1];
-        my ($motif_type)  = $motif =~ /(\d)\_stem_motif/;
-        my ($motif_index) = $motif =~ /stem_motif\_(.*)/;
-        $motif = $motif_type . "_" . $motif_index;
-        $motif{$motif} = 1;
-    }
-    close MAN;
-    return ( \%motif );
-}
 
 
+#--------------------------------------------------------------------------------
+# DistanceToMega
+#
+# Given the distances of pairs of RNA graphs, convert them to the distances in mega 
+#   files so it can be used to calculate phylogenetic trees in MEGA. 
+#
+# Usage 
+# DistanceToMega( \%distance, $mega ); 
+#--------------------------------------------------------------------------------
 sub DistanceToMega {
 
     my ( $distance, $mega ) = @_;
@@ -416,9 +375,20 @@ sub DistanceToMega {
     close $out;
 
 }
+# End of DistanceToMega
 
 
 
+
+#--------------------------------------------------------------------------------
+# SimilarityToMega
+#
+# Given the similarity of pairs of RNA graphs, convert them to the distances in mega 
+#   files so it can be used to calculate phylogenetic trees in MEGA. 
+#
+# Usage 
+# SimilarityToMega( \%similarity, $mega ); 
+#--------------------------------------------------------------------------------
 sub SimilarityToMega {
 
     my ( $similarity, $mega ) = @_;
@@ -438,10 +408,10 @@ sub SimilarityToMega {
 	    if ( defined $similarity{$rnax}{$rnay} ) {
 	        $s = $similarity{$rnax}{$rnay}; 
  	    } elsif ( defined $similarity{$rnay}{$rnax} ) {
-		$s = $similarity{$rnay}{$rnax}; 
+            $s = $similarity{$rnay}{$rnax}; 
 	    }
-	    $s_max = $s  if ( $s > $s_max );
-	}
+            $s_max = $s  if ( $s > $s_max );
+        }
     }
 
     for my $x ( 0 ... $#rna ) {
@@ -498,46 +468,8 @@ sub SimilarityToMega {
     close $out;
 
 }
+# End of SimilarityToMega
 
-
-
-
-
-sub SimilarityToMatrix {
-
-    my ( $similarity, $mtrx ) = @_;
-    my %similarity = %$similarity; 
-    my @rna = sort { $a cmp $b } keys %similarity;
-
-    my $out_string;
-
-    for my $rna ( @rna ) {
-	my ( $fam ) = split /[\.\_]+/, $rna; 
-	$out_string .= "$fam\t";
-    }
-    $out_string .= "\n";
-
-    for my $rna ( @rna ) {
-	$out_string .= "$rna\t";
-    }
-    $out_string .= "\n";
-
-
-    for my $x ( @rna ) {
-        for my $y ( @rna ) {
-	    $out_string .= "$similarity{$x}{$y}\t";
-	}
-	$out_string .= "\n";
-    }
-
-
-
-
-    open ( my $out, ">$mtrx" ) or die "can not open $mtrx!\n";
-    print $out $out_string;
-    close $out;
-
-}
 
 
 #--------------------------------------------------------------------------------
@@ -843,6 +775,8 @@ sub VertexNumberSimilarity {
 # End of VertexNumberSimilarity
 
 
+
+
 #--------------------------------------------------------------------------------
 # EdgeNumberSimilarity
 # 
@@ -881,10 +815,14 @@ sub EdgeNumberSimilarity {
 
 
 
-
-
-
-
+#--------------------------------------------------------------------------------
+# similarity4ROCAllFam
+#
+# Calculate similarity to use for ROC curves for all RNAs.
+#
+# Usage
+# my @plots = similarity4ROCAllFam( $fam, $similarity );
+#--------------------------------------------------------------------------------
 sub similarity4ROCAllFam {
 
     my ($similarity) = @_;
@@ -905,7 +843,6 @@ sub similarity4ROCAllFam {
 	    my ( $famx ) = split /[\_,\.]+/, $rnax; 
 	    my ( $famy ) = split /[\_,\.]+/, $rnay; 
 
-            # TODO test on the undef similarity!! 
             my $similarity = $s{$rnax}{$rnay};
 
             if ( "$famx" eq "$famy" ) {
@@ -930,7 +867,19 @@ sub similarity4ROCAllFam {
     push @plots, $plot;
     return ( \@plots );
 }
+# End of similarity4ROCAllFam
 
+
+
+
+#--------------------------------------------------------------------------------
+# similarity4ROCbyFam
+#
+# Calculate similarity to use for ROC curves for an RNA family.
+#
+# Usage
+# my @plots = similarity4ROCbyFam( $fam, $similarity );
+#--------------------------------------------------------------------------------
 sub similarity4ROCbyFam {
 
     my ( $fam, $similarity ) = @_;
@@ -977,7 +926,18 @@ sub similarity4ROCbyFam {
     push @plots, $plot;
     return ( \@plots );
 }
+# End of similarity4ROCbyFam
 
+
+
+#--------------------------------------------------------------------------------
+# checkIdentical4ROC
+#
+# Check the identical similarity pairs for ROC plot.
+#
+# Usage
+# my ( \%plot ) = checkIdentical4ROC( $total );
+#--------------------------------------------------------------------------------
 sub checkIdentical4ROC {
 
     my ($total) = @_;
@@ -1076,7 +1036,19 @@ sub checkIdentical4ROC {
     return ( \%plot );
 
 }
+# End of checkIdentical4ROC
 
+
+
+
+#--------------------------------------------------------------------------------
+# ROC
+#
+# Create the object for ROC plot. 
+#
+# Usage
+# my ( $im, $coordinates ) = ROC( $plots, $report, $fam );
+#--------------------------------------------------------------------------------
 sub ROC {
 
     my ( $plots, $report, $fam ) = @_;
@@ -1220,7 +1192,18 @@ sub ROC {
     return ($im, $coordinates);
 
 }
+# End of ROC
 
+
+
+#--------------------------------------------------------------------------------
+# ROCplot
+#
+# Given the object of ROC curve, output it as graphical file.
+#
+# Usage
+# ROCplot( $rocplot, $im);
+#--------------------------------------------------------------------------------
 sub ROCplot {
 
     my ( $rocplot, $im ) = @_;
@@ -1230,21 +1213,8 @@ sub ROCplot {
     print GRAPH $im->png;
     close GRAPH;
 }
+# End of ROCplot
 
-
-
-sub average{
-        my($data) = @_;
-        if (not @$data) {
-                die("Empty array\n");
-        }
-        my $total = 0;
-        foreach (@$data) {
-                $total += $_;
-        }
-        my $average = $total / @$data;
-        return $average;
-}
 
 
 #------------------------------------------------------------------------------
