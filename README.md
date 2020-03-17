@@ -2,7 +2,7 @@
 ```
 Source code for XIOS RNA fingerprint generation and comparison
 [Manuscript Link](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0164726)
-
+[I'm an inline-style link](https://www.google.com)
 ```
 # Abstract
 ```
