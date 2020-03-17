@@ -8,10 +8,22 @@ https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0164726
 ```
 # Abstract
 ```
-While RNAs are well known to possess complex structures, functionally similar RNAs often have little sequence similarity. While the exact size \
-and spacing of base-paired regions vary, functionally similar RNAs have pronounced similarity in the arrangement, or topology, of base-paired stems. Furthermore, predicted RNA structures often lack pseudoknots (a crucial aspect of biological activity), and are only partially correct, or incomplete. A topological approach addresses all of these difficulties. In this work we describe each RNA structure as a graph that can be converted to a topological spectrum (RNA fingerprint). The set of subgraphs in an RNA structure, its RNA fingerprint, can be compared with the fingerprints of other RNA structures to identify and correctly classify functionally related RNAs. Topologically similar RNAs can be identified even when a large fraction, up to 30%, of the stems are omitted, indicating that highly accurate structures are not necessary. We investigate the performance of the RNA fingerprint approach on a set of eight highly curated RNA families, with diverse sizes and functions, containing pseudoknots, and with little sequence similarity–an especially difficult test set. In spite of the difficult test set, the RNA fingerprint approach is very successful (ROC AUC > 0.95). Due to the inclusion of pseudoknots, the RNA fingerprint approach both covers a wider range of possible structures than methods based only on secondary structure, and its tolerance for incomplete structures suggests that it can be applied even to predicted structures.
-
-
+While RNAs are well known to possess complex structures, functionally similar RNAs often have little 
+sequence similarity. While the exact size and spacing of base-paired regions vary, functionally similar 
+RNAs have pronounced similarity in the arrangement, or topology, of base-paired stems. Furthermore, 
+predicted RNA structures often lack pseudoknots (a crucial aspect of biological activity), and are only 
+partially correct, or incomplete. A topological approach addresses all of these difficulties. In this 
+work we describe each RNA structure as a graph that can be converted to a topological spectrum (RNA 
+fingerprint). The set of subgraphs in an RNA structure, its RNA fingerprint, can be compared with the 
+fingerprints of other RNA structures to identify and correctly classify functionally related RNAs. 
+Topologically similar RNAs can be identified even when a large fraction, up to 30%, of the stems are 
+omitted, indicating that highly accurate structures are not necessary. We investigate the performance of 
+the RNA fingerprint approach on a set of eight highly curated RNA families, with diverse sizes and 
+functions, containing pseudoknots, and with little sequence similarity–an especially difficult test set. 
+In spite of the difficult test set, the RNA fingerprint approach is very successful (ROC AUC > 0.95). 
+Due to the inclusion of pseudoknots, the RNA fingerprint approach both covers a wider range of possible 
+structures than methods based only on secondary structure, and its tolerance for incomplete structures 
+suggests that it can be applied even to predicted structures.
 
 ```
 
