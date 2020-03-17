@@ -1,9 +1,8 @@
 # XIOS_RNA_fingerprint
 ```
-Source code for XIOS RNA fingerprint generation and comparison
-
-Manuscript Link: 
-https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0164726
+This project contains the source code for the paper "Accurate Classification of RNA Structures Using 
+Topological Fingerprints"(https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0164726), 
+a graph-based RNA structure matching and classification project. 
 ```
 # Abstract
 ```
